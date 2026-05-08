@@ -3,7 +3,7 @@ import emailjs from "@emailjs/browser";
 import { Form, Row, Col, Button, Spinner } from "react-bootstrap";
 import { Formik } from "formik";
 import * as yup from "yup";
-import "./contact.css";
+import "./Contact.css";
 import { colors } from "../data/colors";
 import FooterBanner from "../components/Common/FooterBanner";
 import independence from '../assets/Photos/independence_day/independence_6.webp'
