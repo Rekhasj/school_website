@@ -1,0 +1,160 @@
+/* 🌈 Gradient Background */
+.footer-modern {
+  position: relative;
+  overflow: hidden;
+  padding: 100px 0 50px;
+  background: linear-gradient(270deg, #183769, rgb(24, 55, 105));
+  background-size: 400% 400%;
+  animation: gradientMove 10s ease infinite;
+  color: #fff;
+}
+
+/* Smooth gradient animation */
+@keyframes gradientMove {
+  0% { background-position: 0% }
+  50% { background-position: 100% }
+  100% { background-position: 0% }
+}
+
+/* 🌊 Waves */
+.wave-container {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.wave {
+  width: 200%;
+  animation: waveMove 12s linear infinite;
+}
+
+.wave2 {
+  animation-duration: 18s;
+}
+
+@keyframes waveMove {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Content */
+.footer-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Logo */
+.footer-logo {
+  width: 140px;
+}
+
+/* Headings */
+.footer-heading {
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+/* Links */
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-links a {
+  color: #ddd;
+  text-decoration: none;
+  font-size: 20px;
+  transition: all 0.3s;
+  text-decoration: underline;
+}
+
+.contact-info a{
+      text-decoration: none;
+
+}
+
+.footer-links a:hover {
+  color: #fff;
+  transform: translateX(5px);
+}
+
+.highlight-link {
+  color: #7dffb0 !important;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+/* 🌐 Social Icons */
+.social-container {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.social-icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: #fff;
+  transition: all 0.4s ease;
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Floating animation */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Hover effect */
+.social-icon:hover {
+  transform: translateY(-10px) scale(1.1);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+/* Brand Colors */
+.facebook {
+  background: linear-gradient(135deg, #3b5998, #8b9dc3);
+}
+
+.whatsapp {
+  background: linear-gradient(135deg, #25d366, #7dffb0);
+}
+
+.instagram {
+  background: linear-gradient(135deg, #e1306c, #f77737);
+}
+
+.youtube {
+  background: linear-gradient(135deg, #ff0000, #ff6a6a);
+}
+
+.phone {
+  background: linear-gradient(135deg, #444, #888);
+}
+
+.social-container {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Add this */
+@media (min-width: 768px) {
+  .social-container {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 767px) {
+  .social-container {
+    justify-content: center;
+  }
+}

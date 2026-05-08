@@ -1,0 +1,80 @@
+.training-section {
+  padding: 20px 0;
+  background: #f8fafc;
+}
+
+/* LEFT */
+.training-tag {
+  display: inline-block;
+  background: rgba(0, 89, 76, 0.1);
+  color: rgb(0, 89, 76);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.training-title {
+  font-size: 32px;
+  font-weight: 800;
+  color: rgb(24, 55, 105);
+  margin-bottom: 15px;
+}
+
+.training-desc {
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+/* LIST */
+.training-list {
+  list-style: none;
+  padding: 0;
+}
+
+.training-list li {
+  position: relative;
+  padding-left: 26px;
+  margin-bottom: 10px;
+  color: #444;
+}
+
+.training-list li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: rgb(0, 89, 76);
+  font-weight: bold;
+}
+
+/* IMAGE */
+.training-img-wrap {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+}
+
+.training-img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  transition: 0.4s;
+}
+
+.training-img-wrap:hover .training-img {
+  transform: scale(1.05);
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .training-title {
+    font-size: 24px;
+  }
+
+  .training-img {
+    height: 240px;
+    margin-top: 20px;
+  }
+}

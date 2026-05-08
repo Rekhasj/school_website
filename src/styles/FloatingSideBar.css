@@ -1,0 +1,52 @@
+.icon-bar {
+  position: fixed;
+  top: 60%;
+  right: 0;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+}
+
+.icon-bar a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* padding: 12px; */
+  transition: all 0.3s ease;
+  color: white;
+  font-size: 22px;
+  text-align: center;
+  text-decoration: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px 0 0 8px;
+  margin: 2px 0;
+}
+
+/* Brand Colors */
+.facebook {
+  background: #3b5998;
+}
+.telegram {
+  background: #0088cc;
+}
+.whatsapp {
+  background: #25d366;
+}
+.instagram {
+  background: #e1306c;
+}
+.youtube {
+  background: #ff0000;
+}
+
+.icon-bar a:hover {
+  opacity: 0.8;
+}
+.phone {
+  background: #28a745; /* or any color you like */
+}
+
+
+

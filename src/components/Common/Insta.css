@@ -1,0 +1,37 @@
+/* Horizontal scroll container */
+.insta-slider {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: 10px;
+}
+
+/* Hide scrollbar (clean look) */
+.insta-slider::-webkit-scrollbar {
+  display: none;
+}
+
+/* Card style */
+.insta-card {
+  min-width: 220px;
+  height: 300px;
+  border-radius: 15px;
+  overflow: hidden;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+/* Image */
+.insta-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Hover effect */
+.insta-card:hover {
+  transform: scale(1.08);
+}
+

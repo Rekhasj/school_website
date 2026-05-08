@@ -1,0 +1,28 @@
+
+.form-card {
+  background: #fff;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+.map-card {
+  height: 100%;
+  min-height: 400px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+.contact-page {
+  padding-top: 80px;   /* 🔥 main fix */
+  padding-bottom: 20px;
+}
+
+.contact-title {
+  text-align: center;
+  font-size: 34px;
+  font-weight: 800;
+  margin-bottom: 50px;
+  color: rgb(24, 55, 105);
+}

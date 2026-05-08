@@ -1,0 +1,35 @@
+/* Initial state */
+.director-text,
+.director-image {
+  opacity: 0;
+  transform: translateX(0) scale(0.9);
+  transition: all 0.3s ease-out;
+  will-change: transform, opacity;
+}
+
+/* Add depth */
+.director-image img {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Hover effect */
+.director-image:hover img {
+  transform: scale(1.05);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+
+.director-wrapper {
+  background: linear-gradient(135deg, #f5f7fa, #e0f2f1);
+  padding: 40px;
+  border-radius: 20px;
+}
+
+
+.director-text {
+  padding-right: 30px;
+}
+
+.director-image {
+  padding-left: 30px;
+}

@@ -1,0 +1,53 @@
+.ac-bar {
+  width: 100%;
+  overflow: hidden;
+  padding: 10px 0;
+  background: transparent;
+  margin: 5px 0px 0px 0px;
+}
+
+/* TRACK MUST BE FLEX */
+.ac-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 10s linear infinite;
+   will-change: transform;
+  transform: translateZ(0);
+}
+
+/* ITEM */
+.ac-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  white-space: nowrap;
+  padding-right: 80px;
+}
+
+/* TEXT */
+.ac-item span {
+  font-size: 16px;
+  font-weight: 600;
+  color: green;
+  white-space: nowrap;
+}
+
+/* BADGE */
+.new-badge-text {
+  background: green;
+  color: white !important;
+  font-size: 10px;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 20px;
+}
+
+/* ✅ PERFECT LOOP ANIMATION */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

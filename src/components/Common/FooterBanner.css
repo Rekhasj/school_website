@@ -1,0 +1,83 @@
+.common-banner-wrapper {
+  position: relative;
+  z-index: 10;
+    /* margin-bottom: -80px;    */
+
+}
+
+.common-banner-card {
+  background: linear-gradient(
+    135deg,
+    rgba(24, 55, 105, 0.95),
+    rgba(0, 89, 76, 0.85)
+  );
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  padding: 40px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+}
+
+/* TEXT */
+.banner-text h2 {
+  font-size: 20px;
+  font-weight: 800;
+  margin: 0;
+}
+
+.banner-text p {
+  margin-top: 10px;
+  opacity: 0.85;
+}
+
+/* BUTTON */
+.banner-btn {
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.banner-btn:hover {
+  background: white;
+  color: rgb(24, 55, 105);
+  transform: scale(1.05);
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .common-banner-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+    padding: 30px;
+  }
+
+  .banner-text h2 {
+    font-size: 22px;
+  }
+}
+
+.admission-text {
+  font-size: 20px;
+  margin-top: 10px;
+   animation: glow 2s infinite ease-in-out;
+
+}
+@keyframes glow {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
