@@ -7,7 +7,7 @@ import {
   FaYoutube,
   FaPhone,
 } from "react-icons/fa";
-import "../styles/FloatingSidebar.css";
+import "../styles/FloatingSideBar.css";
 
 const FloatingSidebar = () => {
   return (
