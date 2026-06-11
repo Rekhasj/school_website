@@ -56,7 +56,7 @@ useEffect(() => {
 }, []);
 
   return (
-    <div className="excellence-wrapper px-5 my-5">
+    <div className="excellence-wrapper my-4 my-md-5">
 
       <Container className="text-center">
 
@@ -90,9 +90,9 @@ useEffect(() => {
           whileInView="visible"
           viewport={{ once: true }} // animate once
         >
-          <Row className="justify-content-center mt-4">
+          <Row className="justify-content-center mt-4 g-5">
             {rewards.map((item, i) => (
-              <Col md={3} sm={6} key={i}>
+                 <Col xs={6} md={3} key={i}>
                 <motion.div
                   custom={i}
                   variants={cardVariants}

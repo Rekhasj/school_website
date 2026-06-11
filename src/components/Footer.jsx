@@ -29,118 +29,69 @@ const Footer = () => {
       </div>
 
       {/* 📦 Content */}
-      <Container fluid className="footer-content">
-        <Row className="align-items-start text-center">
+        <Container fluid className="footer-content px-3 px-md-4 px-lg-5">  {/* ✅ Responsive padding */}
+    <Row className="g-4 text-center text-md-start">  {/* ✅ center on mobile, left on desktop */}
+
 
           {/* Logo */}
-          <Col md={3}>
+      <Col xs={12} md={3} className="d-flex flex-column align-items-center align-items-md-start">
             <img
               src="https://www.hawkingschool.com/img/logos/logo_footer1.png"
               alt="logo"
               className="footer-logo"
             />
-            <p className="mt-2 small">
+        <p className="mt-2 small mb-0">
               © 2025 Hawkings School. All rights reserved.
             </p>
           </Col>
 
           {/* About */}
 
-<Col md={3} className="footer-contact">
-  <h4>Hawkings International School</h4>
+<Col xs={12} md={3} className="footer-contact">
+        <h5 className="footer-heading">Hawkings International School</h5>
+        <p className="small mb-2">CBSE Affiliated · Affiliation No: 130722</p>
+        <p className="small">
+          A modern institution focused on academic excellence,
+          values, and holistic student development.
+        </p>
+        <div className="contact-info">
+          <p className="small mb-1">
+            📍 Palaripalle, Vendugampalle Post,<br />
+            Kuppam Mandal, Chittoor Dist,<br />
+            Andhra Pradesh - 517425
+          </p>
+          <a href="tel:9952321179" className="contact-phone">
+            📞 (+91) 9952321179
+          </a>
+        </div>
+      </Col>
 
-  <p className="small mb-2">
-    CBSE Affiliated · Affiliation No: 130722
-  </p>
-
-  <p className="small">
-    A modern institution focused on academic excellence,
-    values, and holistic student development.
-  </p>
-
-  <div className="contact-info">
-
-    <p>
-      📍 <strong>Address:</strong><br/>
-      Palaripalle, Vendugampalle Post,<br/>
-      Kuppam Mandal, Chittoor Dist,<br/>
-      Andhra Pradesh - 517425
-      <br />
-            <a href="tel:9952321179"  className=""> 📞 (+91) 9952321179</a> 
-
-    </p>
-
-    {/* <p>
-      📌 <strong>Location:</strong><br/>
-      Near D K Palli, Paramasamudram Road
-    </p>
-
-    <p>
-      🌐 <strong>Website:</strong><br/>
-      <a href="https://hawkingschool.com" target="_blank" rel="noreferrer">
-        hawkingschool.com
-      </a>
-    </p> */}
-
-    {/* <p>
-      📧 <strong>Email:</strong><br/>
-      <a href="mailto:hawkingsintlschool@gmail.com">
-        hawkingsintlschool@gmail.com
-      </a>
-    </p> */}
-
-    {/* <p>
-      📞 <strong>Phone : </strong>
-      <a href="tel:9952321179">+9952321179</a> 
-        </p> */}
-
-  </div>
-</Col>
           {/* Quick Links */}
-          <Col md={3}>
-            <h4 className="footer-heading">Quick Links</h4>
+ <Col xs={6} md={3}>  {/* ✅ xs=6 so links + social sit side by side on mobile */}
+        <h5 className="footer-heading">Quick Links</h5>
+        <div className="footer-links">
+          <a href="/about">About</a>
+          <a href="/facilities">Facilities</a>
+          <a href="/gallery">Gallery</a>
+          <a href="/news">News</a>
+          <a href="/login">Contact</a>
+          <a href={Disclosure} target="_blank" rel="noreferrer" className="highlight-link">
+            Mandatory Disclosure
+          </a>
+        </div>
+      </Col>
 
-            <div className="footer-links">
-              <a href="/about">About</a>
-              <a href="/facilities">Facilities</a>
-              <a href="/gallery">Gallery</a>
-              <a href="/news-events">News</a>
-              <a href="/login">Contact</a>
-              <a href={Disclosure} target="_blank" rel="noreferrer" className="highlight-link">
-                Mandatory Disclosure
-              </a>
-            </div>
-          </Col>
-
-          {/* Social */}
-
-     
-          <Col md={3} className="text-md-start text-center">
-  <h4 className="footer-heading mb-4">Connect With Us</h4>
-
-  <div className="social-container justify-content-md-start justify-content-center">
-    <a href="tel:+919441880054" className="social-icon phone">
-      <FaPhone />
-    </a>
-
-    <a href="https://www.facebook.com/Hawkings-International-school-106662441994500/" className="social-icon facebook">
-      <FaFacebook />
-    </a>
-
-    <a href="https://wa.me/919441880054" className="social-icon whatsapp">
-      <FaWhatsapp />
-    </a>
-
-    <a href="https://www.instagram.com/hawkings_school_cbse_kuppam/reels/" className="social-icon instagram">
-      <FaInstagram />
-    </a>
-
-    <a href="#" className="social-icon youtube">
-      <FaYoutube />
-    </a>
-  </div>
-</Col>
-
+      {/* Social */}
+      <Col xs={6} md={3} className="text-center text-md-start">  {/* ✅ xs=6 pairs with links */}
+        <h5 className="footer-heading">Connect With Us</h5>
+        <div className="social-container justify-content-center justify-content-md-start">
+          <a href="tel:+919441880054" className="social-icon phone"><FaPhone /></a>
+          <a href="https://www.facebook.com/Hawkings-International-school-106662441994500/" className="social-icon facebook"><FaFacebook /></a>
+          <a href="https://wa.me/919441880054" className="social-icon whatsapp"><FaWhatsapp /></a>
+          <a href="https://www.instagram.com/hawkings_school_cbse_kuppam/reels/" className="social-icon instagram"><FaInstagram /></a>
+          <a href="#" className="social-icon youtube"><FaYoutube /></a>
+        </div>
+      </Col>
         </Row>
       </Container>
     </footer>

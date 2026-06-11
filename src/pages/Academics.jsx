@@ -18,7 +18,7 @@ const Academics = () => {
   const [selected, setSelected] = useState(null);
 
   return (
-        <div>
+        <div style={{ overflowX: "hidden", width: "100%" }}>
           {/* 🔥 PARALLAX HERO */}
           <div style={styles.parallaxHero}>
             <div style={styles.overlay}>

@@ -1,6 +1,64 @@
-.custom-nav link{
-font-size: 20px;
+/* ── Fix broken selector ── */
+.custom-nav .nav-link {         /* ✅ Was: .custom-nav link */
+  font-size: 14px;
 }
-.nav-item-custom{
-  font-size: 18px !important;
+
+/* ── Nav link sizing ── */
+.nav-item-custom {
+  font-size: 14px !important;  /* ✅ Was 18px — way too large */
+  font-weight: 500;
+  padding: 8px 10px !important;
+  transition: color 0.2s ease;
+  white-space: nowrap;         /* ✅ Prevents wrapping mid-word */
+}
+
+.nav-item-custom:hover {
+  color: rgb(254, 201, 3) !important; /* yellow accent on hover */
+}
+
+/* ── Brand text scaling ── */
+.navbar-brand .brand-name {
+  font-weight: bold;
+  font-size: clamp(12px, 2.5vw, 16px);  /* ✅ Scales with screen */
+  line-height: 1.2;
+}
+
+.navbar-brand .brand-sub {
+  font-size: clamp(10px, 1.8vw, 12px);  /* ✅ Scales with screen */
+}
+
+/* ── Mobile collapsed menu ── */
+@media (max-width: 991px) {
+  .navbar-collapse {
+    background-color: rgb(24, 55, 105); /* ✅ Match navbar bg */
+    padding: 12px 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 8px;
+    border-radius: 0 0 12px 12px;
+  }
+
+  .nav-item-custom {
+    font-size: 15px !important;
+    padding: 10px 16px !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08); /* ✅ Separator between links */
+    display: block;
+  }
+
+  .nav-item-custom:last-child {
+    border-bottom: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar-brand img {
+    width: 38px !important;   /* ✅ Smaller logo on phones */
+  }
+
+  .navbar-brand .brand-name {
+    font-size: 13px;
+  }
+
+  .navbar-brand .brand-sub {
+    font-size: 10px;
+  }
 }

@@ -8,7 +8,7 @@ const FooterBanner = () => {
 
   return (
     <div className="common-banner-wrapper">
-      <Container>
+      <Container className="px-3 px-md-4">  {/* ✅ Responsive container padding */}
         <div className="common-banner-card">
           
           <div className="banner-text">
@@ -23,8 +23,8 @@ const FooterBanner = () => {
           </div>
 
           <button
-            className="banner-btn"
-            onClick={() => navigate("/contact")}
+            className="banner-btn flex-shrink-0"
+            onClick={() => navigate("/login")}
           >
             Enquire now
           </button>

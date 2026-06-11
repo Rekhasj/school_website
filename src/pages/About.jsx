@@ -162,10 +162,11 @@ training: (<TrainingSection />),
         </div>
       </div>
 
-      <Container fluid>
-        <Row>
-          {/* SIDEBAR */}
-          <Col md={3} className="p-4" style={styles.sidebar}>
+      <Container fluid className="p-0">
+        <Row className="g-0">
+
+          {/* ── SIDEBAR — desktop only ── */}
+          <Col md={3} className="d-none d-md-block p-4" style={styles.sidebar}>
             <Nav className="flex-column">
               {navItems.map((item) => (
                 <motion.div key={item.id} whileHover={{ x: 5 }}>
@@ -184,14 +185,35 @@ training: (<TrainingSection />),
             </Nav>
           </Col>
 
-          {/* CONTENT */}
-          <Col md={9} className="p-4" style={styles.content}>
+          {/* ── MOBILE TAB BAR — mobile only ── */}
+          <Col xs={12} className="d-md-none" style={styles.mobileTabBar}>
+            <div style={styles.tabScroller}>
+              {navItems.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => setActive(item.id)}
+                  style={{
+                    ...styles.mobileTab,
+                    background: active === item.id ? "rgba(255,255,255,0.2)" : "transparent",
+                    fontWeight: active === item.id ? "700" : "400",
+                    borderBottom: active === item.id ? "3px solid #fec903" : "3px solid transparent",
+                  }}
+                >
+                  {item.label}
+                </button>
+              ))}
+            </div>
+          </Col>
+
+          {/* ── CONTENT ── */}
+          <Col xs={12} md={9} className="p-3 p-md-4" style={styles.content}>
             <AnimatePresence mode="wait">
               <motion.div key={active} {...fadeUp}>
                 {sections[active]}
               </motion.div>
             </AnimatePresence>
           </Col>
+
         </Row>
       </Container>
     </div>
@@ -205,10 +227,14 @@ export default About;
 const Stats = () => (
   <Row className="mb-5">
     {["100% Results", "7+ Years", "1000+ Students", "100+ Faculty"].map((item, i) => (
-      <Col md={3} sm={6} key={i}>
+      <Col xs={6} md={3} key={i}>  {/* ✅ xs=6 → 2x2 on mobile */}
         <motion.div style={styles.statCard} whileHover={{ y: -5 }}>
-          <h2>{item.split(" ")[0]}</h2>
-          <p>{item.split(" ")[1]}</p>
+                    <h2 style={{ fontSize: "clamp(18px, 3vw, 24px)", fontWeight: 800 }}>
+
+          {item.split(" ")[0]}</h2>
+                    <p style={{ margin: 0, fontSize: "13px", color: "#666" }}>
+
+          {item.split(" ")[1]}</p>
         </motion.div>
       </Col>
     ))}
@@ -217,10 +243,10 @@ const Stats = () => (
 
 const Split = ({ title, text, img, reverse }) => (
   <Row className="align-items-center mb-5">
-    <Col md={6} className={reverse ? "order-md-2" : ""}>
-      <motion.img src={img} alt="" style={styles.image} whileHover={{ scale: 1.05 }} />
+    <Col xs={12} md={6} className={reverse ? "order-md-2" : ""}>
+      <motion.img src={img} alt="" style={styles.image} whileHover={{ scale: 1.03 }} />
     </Col>
-    <Col md={6}>
+    <Col xs={12} md={6}>
       <h2 style={styles.heading}>{title}</h2>
       <p style={styles.text}>{text}</p>
     </Col>
@@ -230,9 +256,9 @@ const Split = ({ title, text, img, reverse }) => (
 const Cards = ({ title, items }) => (
   <div>
     <h2 style={styles.heading} className="mb-4">{title}</h2>
-    <Row>
+    <Row className="g-3">
       {items.map((item, i) => (
-        <Col md={4} sm={6} key={i} className="mb-4">
+        <Col xs={12} sm={6} md={4} key={i}>  {/* ✅ xs=12 on mobile */}
           <motion.div style={styles.card} whileHover={{ y: -8 }}>
             {item}
           </motion.div>
@@ -246,47 +272,76 @@ const Cards = ({ title, items }) => (
 const styles = {
   parallaxHero: {
     height: "400px",
-      backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(${independence})`,
-
-    backgroundAttachment: "fixed",
+    backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(${independence})`,
+    backgroundAttachment: "scroll",        // ✅ iOS Safari fix
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    padding: "0 20px",
   },
   overlay: {
-    // background: "rgba(15,76,92,0.75)",
     color: "white",
-    // padding: "40px",
-    // borderRadius: "12px",
     textAlign: "center",
+    width: "100%",
   },
   sidebar: {
-    background: "linear-gradient(180deg,rgb(24, 55, 105),rgb(24, 55, 105,0.6))",
+    background: "linear-gradient(180deg, rgb(24,55,105), rgba(24,55,105,0.85))",
     color: "white",
     minHeight: "100vh",
+    position: "sticky",                    // ✅ Stays in view while scrolling content
+    top: 0,
+    alignSelf: "flex-start",
   },
   navItem: {
     color: "white",
     padding: "12px 15px",
     borderRadius: "10px",
-    marginBottom: "10px",
+    marginBottom: "8px",
     cursor: "pointer",
-    fontSize:"20px"
-    
+    fontSize: "15px",                      // ✅ Was 20px — too large
   },
+
+  // ── Mobile tab bar ──
+  mobileTabBar: {
+    background: "rgb(24,55,105)",
+    position: "sticky",
+    top: "64px",                           // ✅ Below navbar
+    zIndex: 100,
+    overflowX: "auto",
+  },
+  tabScroller: {
+    display: "flex",
+    overflowX: "auto",
+    scrollbarWidth: "none",                // hide scrollbar Firefox
+    msOverflowStyle: "none",              // hide scrollbar IE
+    padding: "0 8px",
+  },
+  mobileTab: {
+    flexShrink: 0,
+    color: "white",
+    border: "none",
+    padding: "12px 16px",
+    fontSize: "13px",
+    cursor: "pointer",
+    whiteSpace: "nowrap",
+    transition: "all 0.2s",
+    background: "transparent",
+  },
+
   content: {
     background: "#f4f8fb",
     minHeight: "100vh",
   },
   statCard: {
     background: "white",
-    padding: "25px",
+    padding: "20px",
     borderRadius: "16px",
     textAlign: "center",
     boxShadow: "0 6px 18px rgba(0,0,0,0.08)",
+    marginBottom: "16px",
   },
   card: {
     background: "white",
@@ -294,17 +349,21 @@ const styles = {
     borderRadius: "16px",
     boxShadow: "0 6px 18px rgba(0,0,0,0.08)",
     textAlign: "center",
+    height: "100%",
   },
   image: {
-    width: "80%",
+    width: "100%",                         // ✅ Was 80% — too narrow on mobile
     borderRadius: "16px",
+    display: "block",
   },
   heading: {
     fontWeight: "700",
+    fontSize: "clamp(18px, 3vw, 26px)",   // ✅ Fluid heading
     marginBottom: "15px",
   },
   text: {
     color: "#555",
-    lineHeight: "1.7",
+    lineHeight: "1.8",
+    fontSize: "clamp(13px, 2vw, 15px)",   // ✅ Fluid body text
   },
 };

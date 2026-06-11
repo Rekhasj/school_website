@@ -195,7 +195,7 @@ const Home = () => {
   </Row>
 </Container> */}
 
-<div className="container-fluid px-5 my-5">
+<div className="container-fluid px-2 px-sm-3 px-md-5 my-4 my-md-5">
   <Row className="g-0">
     <Col md={12}>
       <div className="admission-card">

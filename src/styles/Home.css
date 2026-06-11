@@ -79,3 +79,10 @@
   overflow: hidden;
   box-shadow: 0 20px 40px rgba(0,0,0,0.15);
 }
+
+@media (max-width: 576px) {
+  .admission-card {
+    border-radius: 12px;          /* ✅ Softer radius on small screens */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  }
+}

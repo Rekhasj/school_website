@@ -22,7 +22,7 @@
 .fac-header {
   text-align: center;
   max-width: 620px;
-  margin: 0 auto 52px;
+  margin: 52px auto 52px;
 }
 
 .fac-eyebrow {
@@ -81,6 +81,9 @@
   gap: 8px;
   flex-wrap: wrap;
   margin-bottom: 40px;
+
+   padding: 0 8px;
+  box-sizing: border-box;
 }
 
 .fac-tab {
@@ -109,7 +112,9 @@
 /* ─── Panel Shell ─── */
 .fac-panel-shell {
   /* max-width: 960px; */
-  margin: 20px 64px;
+  /* margin: 20px 64px; */
+    margin: 20px clamp(0px, 4vw, 64px); /* scales from 0 → 64px */
+
 }
 
 .fac-panel {
@@ -335,7 +340,8 @@
 
 .fac-highlights-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+
   gap: 20px;
 }
 
@@ -418,8 +424,12 @@
     grid-template-columns: 1fr;
   }
 
+   .fac-panel-shell {
+    margin: 20px 16px; /* ✅ Safe side margin on tablet */
+  }
+
   .fac-img-wrap {
-    min-height: 280px;
+    min-height: 260px; /* ✅ Slightly shorter on tablet */
   }
 
   .fac-right {
@@ -427,15 +437,26 @@
   }
 
   .fac-highlights-grid {
-    grid-template-columns: 1fr;
+     grid-template-columns: 1fr 1fr; /* ✅ 2-col on tablet */
+    gap: 14px;
+  }
+   .fac-hcard {
+    min-height: 260px; /* ✅ Shorter cards on tablet */
   }
 }
 
 @media (max-width: 480px) {
   .fac-page {
-    padding: 52px 16px;
+    padding: 40px 12px; /* ✅ Was 52px 16px — reduce top padding */
   }
 
+  .fac-panel-shell {
+    margin: 16px 0; /* ✅ Full width panel on mobile */
+  }
+
+  .fac-panel {
+    border-radius: 16px; /* ✅ Softer on mobile */
+  }
   .fac-tab {
     font-size: 11.5px;
     padding: 7px 14px;
@@ -444,4 +465,24 @@
   .fac-info-title {
     font-size: 21px;
   }
+   .fac-highlights-grid {
+    grid-template-columns: 1fr; /* ✅ Single col on mobile */
+  }
+
+  .fac-hcard {
+    min-height: 240px;
+  }
+
+  .fac-header {
+    margin: 24px auto 36px; /* ✅ Less top margin on mobile */
+  }
+
+  .fac-check-item {
+    font-size: 14px; /* ✅ Slightly smaller on mobile */
+  }
+
+  .fac-hl-title {
+    font-size: 22px;
+  }
+
 }

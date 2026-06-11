@@ -155,3 +155,25 @@
   margin-top: 20px;
   color: #1d9e75;
 }
+
+/* Hide tab scroller scrollbar on webkit */
+.tab-scroller::-webkit-scrollbar {
+  display: none;
+}
+
+/* Stats — 2 col on mobile */
+@media (max-width: 767px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Split layout stacks on mobile */
+  .split-reverse {
+    direction: ltr !important;
+  }
+
+  /* Cards — 1 col on very small */
+  .mission-card-col {
+    margin-bottom: 12px;
+  }
+}

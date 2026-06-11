@@ -41,14 +41,14 @@ const CustomNavbar = () => {
           <img
             src="https://www.hawkingschool.com/img/logos/logo_footer1.png"
             alt="Hawkings School"
-            width={60}
+            width={50}
           />
 
           <div className="ms-2 " style={{ color: '#cfc8c8' }}>
-            <div style={{ fontWeight: "bold", fontSize: "18px" }}>
+            <div className="brand-name">
               Hawkings International School
             </div>
-            <div style={{ fontSize: "14px" }}>
+            <div className="brand-sub">
               CBSE Affiliated,              Affiliation No: 130722
 
             </div>

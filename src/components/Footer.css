@@ -2,7 +2,7 @@
 .footer-modern {
   position: relative;
   overflow: hidden;
-  padding: 100px 0 50px;
+  padding: clamp(60px, 8vw, 100px) 0 50px; /* ✅ Was fixed 100px — too tall on mobile */
   background: linear-gradient(270deg, #183769, rgb(24, 55, 105));
   background-size: 400% 400%;
   animation: gradientMove 10s ease infinite;
@@ -46,13 +46,15 @@
 
 /* Logo */
 .footer-logo {
-  width: 140px;
+  width: clamp(90px, 15vw, 140px); /* ✅ Scales down on mobile */
 }
 
 /* Headings */
 .footer-heading {
   margin-bottom: 12px;
   font-weight: 600;
+    font-size: clamp(14px, 2vw, 16px); /* ✅ Fluid heading size */
+
 }
 
 /* Links */
@@ -65,14 +67,29 @@
 .footer-links a {
   color: #ddd;
   text-decoration: none;
-  font-size: 20px;
+  font-size: clamp(13px, 2vw, 16px); /* ✅ Was fixed 16px */
   transition: all 0.3s;
   text-decoration: underline;
 }
 
-.contact-info a{
-      text-decoration: none;
+.footer-links a:hover {
+  color: #fff;
+  transform: translateX(5px);
+}
 
+.contact-info a,
+.contact-phone {
+  color: #ddd;
+  text-decoration: none;
+  font-size: 13px;
+  display: block;
+  margin-top: 6px;
+}
+
+.contact-info .small {
+  font-size: clamp(11px, 2vw, 13px); /* ✅ Address text scales */
+  line-height: 1.7;
+  color: rgba(255,255,255,0.75);
 }
 
 .footer-links a:hover {
@@ -83,24 +100,25 @@
 .highlight-link {
   color: #7dffb0 !important;
   font-weight: 500;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
 }
 
 /* 🌐 Social Icons */
 .social-container {
-  display: flex;
-  gap: 12px;
+   display: flex;
+  gap: 10px;
   flex-wrap: wrap;
+  margin-top: 4px;
 }
 
 .social-icon {
-  width: 45px;
-  height: 45px;
+  width: clamp(36px, 5vw, 45px);   /* ✅ Scales on mobile */
+  height: clamp(36px, 5vw, 45px);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
+  font-size: clamp(15px, 2.5vw, 18px);
   color: #fff;
   transition: all 0.4s ease;
   animation: float 4s ease-in-out infinite;
@@ -146,15 +164,24 @@
   flex-wrap: wrap;
 }
 
-/* Add this */
-@media (min-width: 768px) {
-  .social-container {
-    justify-content: flex-start;
-  }
-}
 
 @media (max-width: 767px) {
-  .social-container {
-    justify-content: center;
+  .footer-modern {
+    padding-bottom: 36px;
+  }
+
+  .footer-contact {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 16px;
+  }
+
+  .footer-links a {
+    font-size: 13px;
+  }
+
+  .social-icon {
+    width: 38px;
+    height: 38px;
+    font-size: 15px;
   }
 }
