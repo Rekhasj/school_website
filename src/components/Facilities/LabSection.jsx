@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import "./LabSection.css";
 import { labData } from "../../data/lab";
+import { Link } from "react-router-dom";
 
 const CARD_W = 280;
 const GAP = 16;
@@ -103,7 +104,9 @@ const LabSection = () => {
       </div>
 
       <div className="text-center mt-4">
-        <a href="/facilities" className="btn btn-primary">View All Facilities</a>
+        
+       <Link  to={"/facilities"}  className="btn btn-primary"> View All Facilities
+       </Link>
       </div>
     </section>
   );
