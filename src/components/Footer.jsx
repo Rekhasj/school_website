@@ -12,6 +12,7 @@ import {
 } from "react-icons/fa";
 
 import './Footer.css';
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -70,11 +71,11 @@ const Footer = () => {
  <Col xs={6} md={3}>  {/* ✅ xs=6 so links + social sit side by side on mobile */}
         <h5 className="footer-heading">Quick Links</h5>
         <div className="footer-links">
-          <a href="/about">About</a>
-          <a href="/facilities">Facilities</a>
-          <a href="/gallery">Gallery</a>
-          <a href="/news">News</a>
-          <a href="/login">Contact</a>
+           <Link to="/about">About</Link>
+  <Link to="/facilities">Facilities</Link>
+  <Link to="/gallery">Gallery</Link>
+  <Link to="/news">News</Link>
+  <Link to="/login">Contact</Link>
           <a href={Disclosure} target="_blank" rel="noreferrer" className="highlight-link">
             Mandatory Disclosure
           </a>

@@ -37,13 +37,14 @@ const Gallery = () => {
 
   return (
     <section className="gallery-section">
-      <Container>
-
+      
         {/* 🔝 Banner */}
         <BannerSlider />
 
         {/* 🔥 Ticker */}
         <Ticker />
+      <Container>
+
 
         {/* 🎉 EVENTS */}
         <h4 className="section-title">Events</h4>

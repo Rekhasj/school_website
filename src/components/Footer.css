@@ -64,7 +64,8 @@
   gap: 8px;
 }
 
-.footer-links a {
+.footer-links a ,
+.footer-links a[href]{
   color: #ddd;
   text-decoration: none;
   font-size: clamp(13px, 2vw, 16px); /* ✅ Was fixed 16px */

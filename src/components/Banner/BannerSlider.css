@@ -1,7 +1,13 @@
 .banner-container {
   position: relative;
-  height: 400px;
+  height: clamp(250px, 50vw, 500px);
   overflow: hidden;
+  border-radius: 0;          /* ✅ Remove — full bleed needs no radius */
+  margin-bottom: 6px;
+  margin-left: 0;            /* ✅ No side margins */
+  margin-right: 0;
+  width: 100%;   
+  
 }
 
 .banner-slide {
@@ -10,6 +16,7 @@
   background-size: cover;
   background-position: center;
   position: absolute;
+  inset: 0;                           /* ✅ More reliable than width/height 100% */
 }
 
 /* DARK OVERLAY */
@@ -17,40 +24,55 @@
   position: absolute;
   bottom: 0;
   width: 100%;
-  padding: 40px;
+  padding: clamp(16px, 3vw, 40px);   /* ✅ Fluid padding */
   background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
   color: white;
 }
 
 .banner-overlay h2 {
-  font-size: 28px;
+  font-size: clamp(18px, 4vw, 28px); /* ✅ Fluid heading */
   font-weight: bold;
+  margin: 0 0 6px;
 }
 
 .banner-overlay p {
-  font-size: 16px;
+  font-size: clamp(13px, 2vw, 16px); /* ✅ Fluid body */
+  margin: 0;
 }
 
 /* DOTS */
 .dots {
   position: absolute;
-  bottom: 15px;
+  bottom: 12px;
   width: 100%;
   text-align: center;
+  z-index: 10;
 }
 
 .dots span {
-  height: 10px;
-  width: 10px;
-  margin: 5px;
+  height: clamp(8px, 1.5vw, 10px);
+  width: clamp(8px, 1.5vw, 10px);
+  margin: 4px;
   display: inline-block;
   background: white;
   border-radius: 50%;
   opacity: 0.5;
   cursor: pointer;
+  box-sizing: content-box;
+  transition: opacity 0.2s, background 0.2s;
 }
 
 .dots .active {
   opacity: 1;
-  background: #007bff;
+  background: rgb(24, 55, 105);      /* ✅ Match brand color */
+}
+
+/* Mobile */
+
+@media (max-width: 576px) {
+  .banner-container {
+    border-radius: 0;
+    margin-bottom: 16px;
+    height: clamp(160px, 50vw, 240px); /* ✅ Shorter on phones */
+  }
 }

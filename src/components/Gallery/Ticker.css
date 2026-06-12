@@ -1,0 +1,46 @@
+.ticker {
+  overflow: hidden;
+  white-space: nowrap;
+  /* background: rgb(24, 55, 105); */
+  color: green;
+  padding: 10px 0;
+  /* margin-bottom: 24px; */
+  font-size: clamp(14px, 2vw, 16px);
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  position: relative;
+  width: 100%;                    /* ✅ Full width always */
+}
+
+/* Fade edges */
+.ticker::before,
+.ticker::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 60px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* .ticker::before {
+  left: 0;
+  background: linear-gradient(to right, rgb(24, 55, 105), transparent);
+}
+
+.ticker::after {
+  right: 0;
+  background: linear-gradient(to left, rgb(24, 55, 105), transparent);
+} */
+
+.ticker-track {
+  display: inline-block;
+  white-space: nowrap;
+  will-change: transform;         /* ✅ GPU acceleration */
+}
+
+.ticker-track span {
+  display: inline-block;
+  padding-right: 40px;            /* ✅ Gap before loop repeats */
+}

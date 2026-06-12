@@ -38,7 +38,9 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
+            <div style={{ overflowX: "hidden", width: "100%" }}>
+
+    {/* <div> */}
       {/* <div className="bg-dark text-white py-3">
         <Container>
           <Row className="align-items-center">

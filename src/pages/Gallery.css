@@ -1,6 +1,20 @@
 .gallery-section {
-  padding: 60px 0;
+  padding: 0;                /* ✅ Remove top padding — banner handles its own spacing */
   background: #f8f9fa;
+  overflow-x: hidden;        /* ✅ Prevent any stray overflow */
+}
+
+/* Add padding back only for the content below banner */
+.gallery-section .container {
+  padding-top: clamp(24px, 4vw, 40px);
+  padding-bottom: clamp(24px, 4vw, 60px);
+}
+/* Section titles */
+.section-title {
+  font-size: clamp(18px, 3vw, 24px);
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: rgb(24, 55, 105);
 }
 
 /* CARD */
@@ -9,17 +23,24 @@
   overflow: hidden;
   border-radius: 15px;
   cursor: pointer;
+  height: 100%;                        /* ✅ Fill col height */
 }
 
 .gallery-card img {
   width: 100%;
   height: 220px;
   object-fit: cover;
-  transition: 0.4s;
+  transition: transform 0.4s ease;
+  display: block;
+}
+
+/* Featured card — taller on desktop */
+.gallery-card--featured img {
+  height: clamp(220px, 35vw, 360px);  /* ✅ Scales with screen */
 }
 
 .gallery-card:hover img {
-  transform: scale(1.1);
+  transform: scale(1.08);             /* ✅ Reduced from 1.1 */
 }
 
 /* OVERLAY */
@@ -27,12 +48,17 @@
   position: absolute;
   bottom: 0;
   width: 100%;
-  padding: 15px;
+  padding: 12px 15px;
   background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
   color: white;
 }
 
-/* Modal Overlay */
+.overlay h5 {
+  font-size: clamp(13px, 2vw, 16px);  /* ✅ Fluid title */
+  margin: 0;
+}
+
+/* ── Modal ── */
 .gallery-modal {
   position: fixed;
   inset: 0;
@@ -41,16 +67,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 16px;                       /* ✅ Was 20px — tighter on mobile */
 }
 
-/* Modal Box */
 .gallery-modal .modal-content {
   background: #fff;
   border-radius: 12px;
-  padding: 24px;
-  max-width: 85vw;
-  max-height: 85vh;
+  padding: clamp(16px, 3vw, 24px);    /* ✅ Fluid padding */
+  max-width: 90vw;                     /* ✅ Was 85vw — more room on mobile */
+  max-height: 88vh;
   overflow-y: auto;
   width: 100%;
   position: relative;
@@ -58,39 +83,71 @@
 
 .gallery-modal .modal-content h3 {
   margin-bottom: 16px;
-  font-size: 1.4rem;
+  font-size: clamp(16px, 3vw, 22px);  /* ✅ Fluid modal title */
+  padding-right: 32px;                 /* ✅ Space for close button */
 }
 
-/* Image Grid inside Modal */
+/* Modal image grid */
 .modal-images {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 12px;
-  cursor: pointer;
+  grid-template-columns: repeat(auto-fill, minmax(min(160px, 100%), 1fr)); /* ✅ Safe minmax */
+  gap: 10px;
 }
 
 .modal-images img {
   width: 100%;
-  height: 200px;
+  height: clamp(130px, 20vw, 200px);  /* ✅ Was fixed 200px */
   object-fit: cover;
   border-radius: 8px;
   display: block;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.modal-images img:hover {
+  transform: scale(1.06);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  position: relative;
+  z-index: 10;
+}
+
+/* Close button */
 .modal-close {
   position: absolute;
-  top: 16px;
-  right: 16px;
-  background: none;
+  top: 12px;
+  right: 12px;
+  background: #f0f0f0;                /* ✅ Visible bg */
   border: none;
-  font-size: 20px;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: 16px;
   cursor: pointer;
-  color: #666;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
 }
-.modal-images img:hover {
-  transform: scale(1.08);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-  z-index: 10;
-  position: relative;
 
+.modal-close:hover {
+  background: #ddd;
+}
+
+/* ── Responsive breakpoints ── */
+@media (max-width: 576px) {
+  .gallery-card img {
+    height: 180px;                    /* ✅ Shorter cards on phones */
+  }
+
+  .gallery-card--featured img {
+    height: 200px;                    /* ✅ Featured not much taller on phones */
+  }
+
+  .modal-images {
+    grid-template-columns: repeat(2, 1fr); /* ✅ 2 col in modal on mobile */
+  }
+
+  .modal-images img {
+    height: 120px;
+  }
 }

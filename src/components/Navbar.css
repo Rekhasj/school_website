@@ -5,7 +5,7 @@
 
 /* ── Nav link sizing ── */
 .nav-item-custom {
-  font-size: 14px !important;  /* ✅ Was 18px — way too large */
+  font-size: 16px !important;  /* ✅ Was 18px — way too large */
   font-weight: 500;
   padding: 8px 10px !important;
   transition: color 0.2s ease;
@@ -19,7 +19,7 @@
 /* ── Brand text scaling ── */
 .navbar-brand .brand-name {
   font-weight: bold;
-  font-size: clamp(12px, 2.5vw, 16px);  /* ✅ Scales with screen */
+    font-size: clamp(14px, 2.6vw, 18px);  /* ✅ Scales with screen */
   line-height: 1.2;
 }
 

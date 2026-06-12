@@ -13,6 +13,17 @@ import banner2 from '../assets/Photos/staff/2.webp'
 import independence from '../assets/Photos/independence_day/independence_6.webp'
 import hawLogo from '../assets/Photos/logo_footer.png'
 import { StaffSection, TrainingSection } from "../components/TT/StaffSection";
+import useCountUp from "../hook/useCountUp";
+import StatCard from "../components/About/StatCard";
+
+
+const statData = [
+  { number: 100, suffix: "%", label: "Results" },
+  { number: 7,   suffix: "+", label: "Years"   },
+  { number: 1000, suffix: "+", label: "Students" },
+  { number: 100, suffix: "+", label: "Faculty"  },
+];
+
 
 const navItems = [
   { id: "about", label: "About" },
@@ -224,19 +235,12 @@ export default About;
 
 // COMPONENTS
 
+
+// ── Stats row ──
 const Stats = () => (
-  <Row className="mb-5">
-    {["100% Results", "7+ Years", "1000+ Students", "100+ Faculty"].map((item, i) => (
-      <Col xs={6} md={3} key={i}>  {/* ✅ xs=6 → 2x2 on mobile */}
-        <motion.div style={styles.statCard} whileHover={{ y: -5 }}>
-                    <h2 style={{ fontSize: "clamp(18px, 3vw, 24px)", fontWeight: 800 }}>
-
-          {item.split(" ")[0]}</h2>
-                    <p style={{ margin: 0, fontSize: "13px", color: "#666" }}>
-
-          {item.split(" ")[1]}</p>
-        </motion.div>
-      </Col>
+  <Row className="mb-5 g-3">
+    {statData.map((item, i) => (
+      <StatCard key={i} index={i} {...item} />
     ))}
   </Row>
 );
@@ -334,14 +338,6 @@ const styles = {
   content: {
     background: "#f4f8fb",
     minHeight: "100vh",
-  },
-  statCard: {
-    background: "white",
-    padding: "20px",
-    borderRadius: "16px",
-    textAlign: "center",
-    boxShadow: "0 6px 18px rgba(0,0,0,0.08)",
-    marginBottom: "16px",
   },
   card: {
     background: "white",

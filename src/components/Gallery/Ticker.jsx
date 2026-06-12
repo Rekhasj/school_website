@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-
+import "./Ticker.css"
 const Ticker = () => {
  const events = [
     "🎉 Pongal Celebration",
@@ -27,7 +27,7 @@ const Ticker = () => {
             <motion.div
                 className="ticker-track"
                 animate={{ x: ["0%", "-50%"] }}
-                transition={{ repeat: Infinity, duration: 12, ease: "linear" }}
+                transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
             >
                 <span >{scrollText}</span>
                 {/* <span>{text}</span> */}
