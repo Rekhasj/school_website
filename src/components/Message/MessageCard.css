@@ -1,0 +1,84 @@
+.director-wrapper {
+  width: 100%;
+  padding: 0 16px;                         /* ✅ Consistent side padding */
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Cols need padding to breathe */
+.director-text,
+.director-image {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.director-text h4 {
+  font-size: clamp(18px, 3vw, 22px);
+  margin-bottom: 8px;
+}
+
+.director-text p {
+  font-size: clamp(13px, 2vw, 15px);
+  line-height: 1.8;
+  color: #444;
+}
+
+.section-heading-line-left {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, rgb(24, 55, 105), #00594c);
+  border-radius: 2px;
+}
+
+/* Image */
+.director-img {
+  width: 100%;
+  max-width: clamp(200px, 55vw, 340px);
+  border-radius: 12px;
+  display: block;
+  margin: 0 auto;
+}
+
+.director-name {
+  font-size: clamp(15px, 2.5vw, 20px);
+  margin-top: 12px;
+}
+
+.director-desig {
+  font-size: clamp(11px, 1.8vw, 14px);
+  color: #888;
+}
+
+/* ── Mobile ── */
+@media (max-width: 767px) {
+  .director-wrapper {
+    padding: 0 12px;               /* ✅ Slightly tighter on phones */
+  }
+
+  .director-text {
+    text-align: center;
+    order: 1;                      /* ✅ Text always first on mobile */
+  }
+
+  .director-image {
+    order: 2;                      /* ✅ Image always second on mobile */
+  }
+
+  .section-heading-line-left {
+    margin: 0 auto 12px;
+  }
+
+  .director-img {
+    max-width: 220px;
+  }
+}
+
+@media (max-width: 400px) {
+  .director-wrapper {
+    padding: 0 8px;
+  }
+
+  .director-img {
+    max-width: 180px;
+  }
+}
