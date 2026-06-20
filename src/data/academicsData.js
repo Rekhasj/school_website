@@ -62,7 +62,9 @@ export const SECTIONS = [
       ],
       description:
         "Kindergarten at Hawkings blends Play-Way and Montessori techniques aligned with the CBSE national curriculum. Children are introduced to alphabet sounds, numbers, and short sentences through tracing, role-play, and nature walks — building confidence before they enter Grade 1.",
-      subjects: ["English Phonics", "Numbers & Tracing", "EVS & Nature", "Rhymes & Drama", "Fine Motor Skills", "Circle Time"],
+      subjects: [
+        // "English Phonics", 
+        "Numbers & Tracing", "EVS & Nature", "Rhymes & Drama", "Fine Motor Skills", "Circle Time"],
       highlights: [
         "Play-Way methodology integrated with Montessori EPL",
         "Nature walks and outdoor gardening on campus",
@@ -86,7 +88,9 @@ export const SECTIONS = [
       ],
       description:
         "Senior KG marks the phase where children read, write, and form short sentences confidently. Drama, music, and outdoor gardening round out a curriculum that prepares every child for the transition to Grade 1 with confidence, curiosity, and strong foundational skills.",
-      subjects: ["Reading & Writing", "Basic Mathematics", "Music & Drama", "Outdoor Gardening", "Storytelling", "Social Skills"],
+      subjects: ["Reading & Writing", "Basic Mathematics", 
+        // "Music & Drama", "Outdoor Gardening", 
+        "Storytelling", "Social Skills"],
       highlights: [
         "Children read and write alphabets and short sentences",
         "Drama and role-play develop public speaking confidence",

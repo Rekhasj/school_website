@@ -50,7 +50,9 @@ const ParentsFB = () => {
                             whileHover={{ scale: 1.05 }}
                         >
                             <div className="card-header">
-                                <img src={item.image} alt="" />
+                                <img src={""}
+                                // {item.image}
+                                 alt="" />
                                 <div>
                                     <h5>{item.name}</h5>
                                     <span>

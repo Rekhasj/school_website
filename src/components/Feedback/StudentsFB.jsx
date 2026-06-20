@@ -48,7 +48,9 @@ const StudentsFB = () => {
                         >
                             {/* Header */}
                             <div className="card-header">
-                                <img src={item.image} alt={item.name} />
+                                <img src={""}
+                                // {item.image} 
+                                alt={item.name} />
                                 <div>
                                     <h5>{item.name}</h5>
                                     <span>{item.class}</span>

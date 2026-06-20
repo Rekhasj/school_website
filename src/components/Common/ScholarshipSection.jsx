@@ -9,7 +9,9 @@ const rewards = [
 
 const ScholarshipSection = () => {
   return (
-    <div className="py-5 text-center" style={{ background: "#f8f9fa" }}>
+    <div className="p-2 text-center" 
+    style={{ background: "#f8f9fa" }}
+    >
       <Container>
         <h3 className="fw-bold mb-2">Merit Scholarship</h3>
         <p className="mb-4">

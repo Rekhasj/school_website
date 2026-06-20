@@ -18,7 +18,7 @@ import Disclosure from '../data/disclosure.pdf'
 import LabSection from "../components/Facilities/LabSection";
 import FooterBanner from "../components/Common/FooterBanner";
 import TeacherTraining from "../components/TT/TeacherTraining";
-import AllenCollab from "../components/Common/AllenCollab";
+import PosterShowcase from "../components/Common/PosterShowcase";
 
 const Home = () => {
 
@@ -180,7 +180,6 @@ const Home = () => {
       {/* Moving Marquee Text */}
       <Marquee displayText={"ADMISSIONS OPEN FOR ACADEMIC YEAR 2026-27 FOR NURSERY TO GRADE X."} />
       <Slider />
-
 {/* <Container className="my-5 ">
   <Row 
   className="justify-content-center"
@@ -279,6 +278,8 @@ const Home = () => {
 
       {/* Director's Message Section */}
       {/* <Director /> */}
+      <PosterShowcase  />
+
       <TeacherTraining />
 
 

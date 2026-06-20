@@ -8,7 +8,9 @@ const FooterBanner = () => {
 
   return (
     <div className="common-banner-wrapper">
-      <Container className="px-3 px-md-4">  {/* ✅ Responsive container padding */}
+      <Container
+       className="px-3 px-md-4"
+       >  {/* ✅ Responsive container padding */}
         <div className="common-banner-card">
           
           <div className="banner-text">

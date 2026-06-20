@@ -35,13 +35,13 @@ const DetailView = ({ section, onBack }) => (
     <div className="ac-detail-body">
 
       {/* Gallery */}
-      <div className="ac-gallery">
+      {/* <div className="ac-gallery">
         {section.gallery.map((img, i) => (
           <div key={i} className="ac-gallery-img">
             <img src={img} alt={`${section.title} ${i + 1}`} />
           </div>
         ))}
-      </div>
+      </div> */}
 
       <p className="ac-detail-desc">{section.description}</p>
 

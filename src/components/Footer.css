@@ -2,31 +2,39 @@
 .footer-modern {
   position: relative;
   overflow: hidden;
-  padding: clamp(60px, 8vw, 100px) 0 50px; /* ✅ Was fixed 100px — too tall on mobile */
-  background: linear-gradient(270deg, #183769, rgb(24, 55, 105));
+  padding: clamp(60px, 8vw, 100px) 0 50px;
+  background: linear-gradient(270deg, #183769, #14305c, #183769);
   background-size: 400% 400%;
-  animation: gradientMove 10s ease infinite;
+  animation: gradientMove 12s ease infinite;
   color: #fff;
 }
 
 /* Smooth gradient animation */
 @keyframes gradientMove {
-  0% { background-position: 0% }
-  50% { background-position: 100% }
-  100% { background-position: 0% }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 /* 🌊 Waves */
 .wave-container {
   position: absolute;
   top: 0;
+  left: 0;
   width: 100%;
   overflow: hidden;
+  line-height: 0;
 }
 
 .wave {
   width: 200%;
-  animation: waveMove 12s linear infinite;
+  animation: waveMove 14s linear infinite;
 }
 
 .wave2 {
@@ -34,8 +42,12 @@
 }
 
 @keyframes waveMove {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 /* Content */
@@ -46,31 +58,69 @@
 
 /* Logo */
 .footer-logo {
-  width: clamp(90px, 15vw, 140px); /* ✅ Scales down on mobile */
+  width: clamp(90px, 15vw, 140px);
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.25));
+}
+
+.copyright {
+  color: rgba(255, 255, 255, 0.6);
 }
 
 /* Headings */
 .footer-heading {
-  margin-bottom: 12px;
+  margin-bottom: 14px;
   font-weight: 600;
-    font-size: clamp(14px, 2vw, 16px); /* ✅ Fluid heading size */
+  font-size: clamp(14px, 2vw, 16px);
+  position: relative;
+  display: inline-block;
+  padding-bottom: 8px;
+}
 
+/* Subtle accent underline under each heading */
+.footer-heading::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 34px;
+  height: 2px;
+  background: #7dffb0;
+  border-radius: 2px;
+}
+
+/* Center the underline on mobile */
+@media (max-width: 767px) {
+  .footer-heading::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.muted {
+  color: rgba(255, 255, 255, 0.78);
 }
 
 /* Links */
 .footer-links {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
+  align-items: flex-start;
 }
 
-.footer-links a ,
-.footer-links a[href]{
-  color: #ddd;
-  text-decoration: none;
-  font-size: clamp(13px, 2vw, 16px); /* ✅ Was fixed 16px */
-  transition: all 0.3s;
+@media (max-width: 767px) {
+  .footer-links {
+    align-items: center;
+  }
+}
+
+.footer-links a,
+.footer-links a[href] {
+  color: rgba(255, 255, 255, 0.82);
   text-decoration: underline;
+  font-size: clamp(13px, 2vw, 15px);
+  transition: color 0.3s ease, transform 0.3s ease;
+  width: fit-content;
 }
 
 .footer-links a:hover {
@@ -78,42 +128,67 @@
   transform: translateX(5px);
 }
 
-.contact-info a,
-.contact-phone {
-  color: #ddd;
-  text-decoration: none;
-  font-size: 13px;
-  display: block;
-  margin-top: 6px;
+/* Contact block */
+.contact-info {
+  margin-top: 10px;
 }
 
-.contact-info .small {
-  font-size: clamp(11px, 2vw, 13px); /* ✅ Address text scales */
+.address {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
   line-height: 1.7;
-  color: rgba(255,255,255,0.75);
+  color: rgba(255, 255, 255, 0.75);
+  font-size: clamp(11px, 2vw, 13px);
+  justify-content: center;
 }
 
-.footer-links a:hover {
-  color: #fff;
-  transform: translateX(5px);
+@media (min-width: 768px) {
+  .address {
+    justify-content: flex-start;
+  }
+}
+
+.contact-phone {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+  transition: color 0.3s ease;
+}
+
+.contact-phone:hover {
+  color: #7dffb0;
+}
+
+.ci-icon {
+  color: #7dffb0;
+  flex-shrink: 0;
+  margin-top: 2px;
 }
 
 .highlight-link {
   color: #7dffb0 !important;
-  font-weight: 500;
-  /* margin-bottom: 10px; */
+  font-weight: 600;
+}
+
+.highlight-link:hover {
+  color: #a8ffcb !important;
 }
 
 /* 🌐 Social Icons */
 .social-container {
-   display: flex;
-  gap: 10px;
+  display: flex;
+  gap: 12px;
   flex-wrap: wrap;
   margin-top: 4px;
 }
 
 .social-icon {
-  width: clamp(36px, 5vw, 45px);   /* ✅ Scales on mobile */
+  width: clamp(36px, 5vw, 45px);
   height: clamp(36px, 5vw, 45px);
   border-radius: 50%;
   display: flex;
@@ -121,21 +196,41 @@
   justify-content: center;
   font-size: clamp(15px, 2.5vw, 18px);
   color: #fff;
-  transition: all 0.4s ease;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
   animation: float 4s ease-in-out infinite;
+}
+
+/* Stagger the float so they don't bob in unison */
+.social-icon:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.social-icon:nth-child(3) {
+  animation-delay: 0.8s;
+}
+.social-icon:nth-child(4) {
+  animation-delay: 1.2s;
+}
+.social-icon:nth-child(5) {
+  animation-delay: 1.6s;
 }
 
 /* Floating animation */
 @keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-6px); }
-  100% { transform: translateY(0px); }
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
 }
 
 /* Hover effect */
 .social-icon:hover {
   transform: translateY(-10px) scale(1.1);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
 }
 
 /* Brand Colors */
@@ -144,7 +239,7 @@
 }
 
 .whatsapp {
-  background: linear-gradient(135deg, #25d366, #7dffb0);
+  background: linear-gradient(135deg, #25d366, #128c4b);
 }
 
 .instagram {
@@ -156,28 +251,18 @@
 }
 
 .phone {
-  background: linear-gradient(135deg, #444, #888);
+  background: linear-gradient(135deg, #1f9d55, #25d366);
 }
 
-.social-container {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-
+/* 📱 Mobile tweaks */
 @media (max-width: 767px) {
   .footer-modern {
     padding-bottom: 36px;
   }
 
   .footer-contact {
-    border-top: 1px solid rgba(255,255,255,0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding-top: 16px;
-  }
-
-  .footer-links a {
-    font-size: 13px;
   }
 
   .social-icon {

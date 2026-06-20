@@ -14,7 +14,7 @@ const CardView = ({ sections, onSelect }) => (
       </p>
     </div> */}
 
-            <TopHighlightTicker />
+                <TopHighlightTicker />
 
 
     {["early", "school"].map(group => (
@@ -42,7 +42,7 @@ const CardView = ({ sections, onSelect }) => (
                 className="ac-card-hover-bg"
                 style={{ background: s.color }}
               />
-              <div className="ac-card-hover-content">
+              {/* <div className="ac-card-hover-content">
                 <span className="ac-card-tag">{s.tag}</span>
                 <div className="ac-card-hover-title">{s.title}</div>
                 <div className="ac-card-hover-sub">{s.subtitle}</div>
@@ -52,12 +52,49 @@ const CardView = ({ sections, onSelect }) => (
                     <polyline points="9 18 15 12 9 6" />
                   </svg>
                 </div>
-              </div>
+              </div> */}
+
+
+              <div className="ac-card-hover-content">
+  <span className="ac-card-tag">{s.tag}</span>
+  <div className="ac-card-hover-title">{s.title}</div>
+  <div className="ac-card-hover-sub">{s.subtitle}</div>
+
+  <p className="ac-card-hover-desc">{s.description}</p>
+
+  <div className="ac-card-hover-subjects">
+    {s.subjects.map((subj, i) => (
+      <span key={i} className="ac-card-hover-pill">{subj}</span>
+    ))}
+    {/* {s.subjects.length > 3 && (
+      <span className="ac-card-hover-pill ac-card-hover-pill-more">
+        +{s.subjects.length - 3}
+      </span>
+    )} */}
+  </div>
+
+  <div className="ac-card-hover-highlights">
+    {s.highlights.map((h, i) => (
+      <div key={i} className="ac-card-hover-highlight">
+        <span className="ac-card-hover-dot" style={{ background: "#fff" }} />
+        {h}
+      </div>
+    ))}
+  </div>
+
+  {/* <div className="ac-card-cta">
+    View full programme
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+      <polyline points="9 18 15 12 9 6" />
+    </svg>
+  </div> */}
+</div>
             </div>
           ))}
         </div>
       </div>
     ))}
+
   </div>
 );
 

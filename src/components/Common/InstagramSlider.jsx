@@ -17,8 +17,6 @@ const InstagramSlider = () => {
         }
     };
 
-
-
     return (
         // <Container className="my-1">
             <Container fluid className="px-10 my-1">
@@ -45,7 +43,7 @@ const InstagramSlider = () => {
                 ))}
             </div>
 
-            <div className="text-center mt-3">
+            <div className="text-center mt-3 mb-3">
                 <a
                     href="https://www.instagram.com/hawkings_school_cbse_kuppam/reels/"
                     target="_blank"

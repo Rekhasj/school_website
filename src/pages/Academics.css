@@ -10,7 +10,7 @@
 .ac-page-sub { max-width: 540px; margin: 0 auto; color: #666; font-size: 15px; line-height: 1.75; }
 
 /* Group label */
-.ac-group { margin-bottom: 40px; }
+.ac-group { margin:10px 50px 40px; }
 .ac-group-label {
   font-size: 11px; font-weight: 800; letter-spacing: 1px;
   text-transform: uppercase; margin-bottom: 16px;
@@ -21,11 +21,11 @@
 .ac-group-label.school { color: rgb(24,55,105); }
 
 /* Cards grid */
-.ac-cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.ac-cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;padding: 20px; }
 
 /* Card */
 .ac-card {
-  position: relative; height: 300px;
+  position: relative; height: 340px;
   border-radius: 16px; overflow: hidden;
   cursor: pointer;
   box-shadow: 0 4px 20px rgba(0,0,0,0.1);
@@ -65,7 +65,7 @@
   padding: 24px 22px;
 }
 .ac-card-tag {
-  font-size: 10px; font-weight: 800; letter-spacing: 0.8px;
+  font-size: 12px; font-weight: 800; letter-spacing: 0.8px;
   text-transform: uppercase; padding: 3px 12px; border-radius: 20px;
   width: fit-content; margin-bottom: 10px;
   background: rgba(255,255,255,0.2); color: #fff;
@@ -99,9 +99,13 @@
 .ac-card:hover .ac-card-cta { opacity: 1; transform: translateY(0); }
 
 /* Detail view */
-.ac-detail { background: #fff; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 32px rgba(0,0,0,0.08); }
+.ac-detail { background: #fff;
+   border-radius: 20px; 
+   overflow: hidden; box-shadow: 0 4px 32px rgba(0,0,0,0.08); }
 
-.ac-detail-hero { position: relative; height: 320px; }
+.ac-detail-hero { position: relative; height: 320px;
+
+}
 .ac-detail-hero-img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .ac-detail-hero-overlay {
   position: absolute; inset: 0;
@@ -201,3 +205,75 @@
 
 
 
+.ac-card { height: 500px; } /* was 300px */
+
+.ac-card-hover-desc {
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(255,255,255,0.88);
+  margin: 8px 0 10px;
+  /* display: -webkit-box;
+  -webkit-line-clamp: 3; */
+  /* -webkit-box-orient: vertical; */
+  overflow: hidden;
+  transform: translateY(10px);
+  opacity: 0;
+  transition: all 0.32s ease 0.08s;
+}
+
+.ac-card-hover-subjects {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 10px;
+  transform: translateY(10px);
+  opacity: 0;
+  transition: all 0.32s ease 0.12s;
+}
+.ac-card-hover-pill {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.16);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: #fff;
+}
+.ac-card-hover-pill-more {
+  background: rgba(255,255,255,0.28);
+}
+
+.ac-card-hover-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 4px;
+  transform: translateY(10px);
+  opacity: 0;
+  transition: all 0.32s ease 0.16s;
+}
+.ac-card-hover-highlight {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  font-size: 13px;
+  line-height: 1.4;
+  color: rgba(255,255,255,0.85);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.ac-card-hover-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+
+.ac-card:hover .ac-card-hover-desc,
+.ac-card:hover .ac-card-hover-subjects,
+.ac-card:hover .ac-card-hover-highlights {
+  opacity: 1;
+  transform: translateY(0);
+}
