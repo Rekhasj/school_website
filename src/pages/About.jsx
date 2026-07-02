@@ -9,6 +9,10 @@ import independence from '../assets/Photos/independence_day/independence_6.webp'
 import { StaffSection, TrainingSection } from "../components/TT/StaffSection";
 import StatCard from "../components/About/StatCard";
 
+import Hafeez from "../assets/Photos/board_members/hafeez.jpeg"
+import Shabir from "../assets/Photos/board_members/shabir.jpeg"
+import Rafeek from "../assets/Photos/board_members/rafeek.jpeg"
+
 // ─── DATA ────────────────────────────────────────────────────────────────────
 
 const statData = [
@@ -335,13 +339,14 @@ const About = () => {
     leadership: (
       <div>
         {/* Messages */}
-        <h3 style={s.sectionLabel}>Leadership Messages</h3>
+        {/* <h3 style={s.sectionLabel}>Leadership Messages</h3> */}
 
         <MessageCard
           title="Chairman's Message"
-          name="Chairman Name"
-          designation="CHAIRMAN"
-          image="https://via.placeholder.com/300"
+          name="S D Hafeez"
+                    designation="M.B.A."
+
+          image={Hafeez}
           reverse
         >
           <p><strong>Dear Parents,</strong><br />
@@ -355,8 +360,25 @@ const About = () => {
         <MessageCard
           title="Director's Message"
           name="B.C. SHABIR"
-          designation="B.Tech., M.B.A., LL.B. B.Ed. | DIRECTOR"
-          image="https://www.hawkingschool.com/img/shabeer.jpeg"
+          designation="B.Tech., M.B.A.,B.Ed.,LL.B."
+          image={Shabir}
+          reverse
+        >
+          <p><strong>Dear Parents,</strong><br />
+            We have implemented a <strong>360-degree education</strong> system
+            including academics, sports and extracurricular activities.
+          </p>
+          <p>We emphasise innovative learning while instilling moral values, helping
+            students lead a <strong>successful life</strong>.</p>
+          <p>Hawkings School transforms parents' dreams into reality.</p>
+          <p className="highlight-text">The Vision of a Parent is our Mission</p>
+        </MessageCard>
+
+         <MessageCard
+          title="Board Member Message"
+          name="S.D.RAFEEK"
+          designation="Ex.Army, NCC C.T.O."
+          image={Rafeek}
           reverse
         >
           <p><strong>Dear Parents,</strong><br />

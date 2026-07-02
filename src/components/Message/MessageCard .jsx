@@ -47,7 +47,7 @@ const MessageCard = ({
             src={image}
             alt={name}
             className="img-fluid rounded shadow-lg"
-            style={{ maxWidth: "clamp(200px, 60vw, 350px)" }} // ✅ Was fixed 350px
+            style={{ maxWidth: "clamp(500px, 60vw, 350px)" }} // ✅ Was fixed 350px
           />
           <h4 className="mt-3" style={{ fontSize: "clamp(16px, 2.5vw, 20px)" }}>
             {name}
