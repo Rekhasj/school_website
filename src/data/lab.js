@@ -12,6 +12,7 @@ import skating from '../assets/Photos/skating.jpeg'
 import shooting from '../assets/Photos/shooting/shooting_3.webp'
 import yoga1 from "../assets/Photos/yoga_day/yoga_1.jpeg";
 import karate from '../assets/Photos/karate/karate_3.webp'
+import cricket from '../assets/Photos/crosscountryrace.jpeg'
 
 export const labData = [
   {
@@ -88,7 +89,7 @@ export const facilityData = {
       title: "Hawkings Cricket Academy",
       tag: "Featured",
       highlight: true,   // ✅ ADD THIS
-      image: "",
+      image: cricket,
       description: "Professional cricket coaching with structured training programs.",
     }
   ],

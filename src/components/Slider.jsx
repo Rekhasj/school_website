@@ -27,7 +27,7 @@ const Slider = () => {
             className="d-block w-100"
             src={img}
             alt={`Slide ${index + 1}`}
-            style={{ height: "500px", objectFit: "cover" }} // Adjust height as needed
+            style={{ height: "clamp(200px, 40vw, 500px)", objectFit: "cover" }}
           />
           <Carousel.Caption>
             <h3>Welcome to Hawkings School</h3>

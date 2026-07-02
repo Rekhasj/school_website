@@ -1,7 +1,5 @@
-import React from "react";
+import { Navigate } from "react-router-dom";
 
-function Contact() {
-  return <div>Contact</div>;
+export default function Contact() {
+  return <Navigate to="/login" replace />;
 }
-
-export default Contact;

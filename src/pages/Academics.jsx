@@ -23,12 +23,23 @@ const Academics = () => {
       {/* 🔥 PARALLAX HERO */}
       <div style={styles.parallaxHero}>
         <div style={styles.overlay}>
-          <motion.h1 initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+          <motion.h1
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            style={{ fontSize: "clamp(28px, 6vw, 52px)", fontWeight: 800 }}
+          >
             Academics
           </motion.h1>
-          <p style={{ maxWidth: '540px' }}>        Every stage of learning at Hawkings is crafted to nurture curiosity,
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            style={{ maxWidth: "540px", fontSize: "clamp(13px, 2vw, 16px)", opacity: 0.9 }}
+          >
+            Every stage of learning at Hawkings is crafted to nurture curiosity,
             build character, and prepare young scholars for the world ahead.
-          </p>
+          </motion.p>
         </div>
       </div>
 
@@ -77,10 +88,9 @@ export default Academics;
 
 const styles = {
   parallaxHero: {
-    height: "400px",
+    height: "clamp(240px, 40vw, 400px)",
     backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(${independence})`,
-
-    backgroundAttachment: "fixed",
+    backgroundAttachment: "scroll", // "fixed" is broken on iOS Safari
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",

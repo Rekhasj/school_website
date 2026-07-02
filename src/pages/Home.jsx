@@ -1,317 +1,882 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Slider from "../components/Slider";
-import { Container, Row, Col, Button, Nav } from "react-bootstrap";
+import { Container, Row, Col, Button } from "react-bootstrap";
+import { motion } from "framer-motion";
 import Marquee from "../components/Common/Marquee";
 import Activity from "../components/Activity/Activity";
-import Video from "../assets/video/video_2.mp4"
+import Video from "../assets/video/video_2.mp4";
 import "../styles/Home.css";
 import { Link } from "react-router-dom";
 import Result from "../components/Common/Result";
-import Insta from "../components/Common/Insta";
 import InstagramSlider from "../components/Common/InstagramSlider";
 import CtaSlider from "../components/Common/CtaSlider";
-import Director from "../components/Message/Director";
 import ParentsFB from "../components/Feedback/ParentsFB";
 import StudentsFB from "../components/Feedback/StudentsFB";
-
-import Disclosure from '../data/disclosure.pdf'
+import Disclosure from "../data/disclosure.pdf";
 import LabSection from "../components/Facilities/LabSection";
 import FooterBanner from "../components/Common/FooterBanner";
 import TeacherTraining from "../components/TT/TeacherTraining";
 import PosterShowcase from "../components/Common/PosterShowcase";
+import Hafeez from "../assets/Photos/board_members/hafeez.jpeg";
+import Shabir from "../assets/Photos/board_members/shabir.jpeg";
+import Rafeek from "../assets/Photos/board_members/rafeek.jpeg";
+
+// Gallery photos — real Hawkings moments
+import galIndependence  from "../assets/Photos/independence_day/independence_5.webp";
+import galKarate        from "../assets/Photos/karate/karate_2.webp";
+import galSports        from "../assets/Photos/sports_meet/sports_2.webp";
+import galKrishna       from "../assets/Photos/krishnaDay/krishnaDay.webp";
+import galRobotics      from "../assets/Photos/robotics/r3.jpeg";
+import galScienceExpo   from "../assets/Photos/science_expo_photos/science_expo_1.webp";
+import kidsScienceExpo   from "../assets/Photos/kids_expo/srkg.jpg";
+import onam   from "../assets/Photos/onam/1.webp";
+import sankranti   from "../assets/Photos/sankranti/pongal_9.webp";
+import skating   from "../assets/Photos/skating.jpeg";
+import cyclerally   from "../assets/Photos/cyclerally.jpeg";
+
+
+const BRAND = "rgb(24,55,105)";
+const GREEN = "#00594c";
+
+const FACILITIES = [
+  {
+    icon: "🏥",
+    title: "Health Care",
+    color: "#1d9e75",
+    points: [
+      // "Regular health check-ups",
+      "First-aid trained staff on campus",
+      "Wellness & yoga programme",
+    ],
+  },
+  {
+    icon: "🚌",
+    title: "Transport",
+    color: "#257a8f",
+    points: [
+      "GPS-tracked school buses",
+      "Routes across Kuppam Municipality",
+      "Safe morning & evening pick-up",
+    ],
+  },
+  {
+    icon: "🛡️",
+    title: "Safety & Security",
+    color: "rgb(24,55,105)",
+    points: [
+      "24×7 CCTV surveillance",
+      "Controlled campus access",
+      "Dedicated security personnel",
+    ],
+  },
+  {
+    icon: "🥗",
+    title: "Nutrition",
+    color: "#f26724",
+    points: [
+      "Mid-day nutritious meal daily",
+      // "Hygienic kitchen facility",
+      "Nutritious Food Entertained",
+      "Junk Food Prohibited"
+      // "Balanced diet for all students",
+    ],
+  },
+];
+
+const PROGRAMS = [
+  {
+    grade: "Pre-Primary",
+    range: "Playgroup · Nursery · LKG · UKG",
+    icon: "🌱",
+    color: "#78c078",
+    desc: "Play-based learning through Montessori and Play-Way methods that spark curiosity from day one.",
+  },
+  {
+    grade: "Primary",
+    range: "Grade I – V",
+    icon: "📖",
+    color: "#4daeae",
+    desc: "Strong foundation in literacy, numeracy and environmental science with activity-led lessons.",
+  },
+  {
+    grade: "Middle School",
+    range: "Grade VI – VIII",
+    icon: "🔬",
+    color: "#257a8f",
+    desc: "Conceptual learning with smart classrooms, science labs and project-based assignments.",
+  },
+  {
+    grade: "Secondary",
+    range: "Grade IX – X",
+    icon: "🎓",
+    color: "rgb(24,55,105)",
+    desc: "Rigorous CBSE board preparation that readies students for competitive exams and beyond.",
+  },
+];
+
+const LEADERS = [
+  {
+    name: "S D Hafeez",
+    title: "Chairman",
+    designation: "M.B.A.",
+    img: Hafeez,
+    quote:
+      "We believe in providing holistic education that nurtures academic excellence, creativity and strong values in every child.",
+  },
+  {
+    name: "B.C. Shabir",
+    title: "Director",
+    designation: "B.Tech., M.B.A., B.Ed., LL.B.",
+    img: Shabir,
+    quote:
+      "Hawkings transforms parents' dreams into reality. The Vision of a Parent is our Mission.",
+  },
+  {
+    name: "S.D. Rafeek",
+    title: "Board Member",
+    designation: "Ex. Army · NCC C.T.O.",
+    img: Rafeek,
+    quote:
+      "Discipline, dedication and duty — these are the values we instil in every Hawkings student to prepare them for life.",
+  },
+];
+
+const STATS = [
+  { value: "7+", label: "Years of Excellence", icon: "🏆" },
+  { value: "1000+", label: "Students Enrolled", icon: "👩‍🎓" },
+  { value: "50+", label: "Faculty Members", icon: "👨‍🏫" },
+  { value: "100%", label: "Board Results", icon: "📊" },
+  { value: "CBSE", label: "Affiliated — No: 130722", icon: "🎓" },
+];
+
+const WHY = [
+  {
+    icon: "📚",
+    title: "CBSE Excellence",
+    desc: "100% board results every year with a structured, activity-based curriculum.",
+    color: BRAND,
+  },
+  {
+    icon: "🔬",
+    title: "Modern Infrastructure",
+    desc: "Digital classrooms, science labs, library and a green house campus.",
+    color: "#1d9e75",
+  },
+  {
+    icon: "⚽",
+    title: "Holistic Development",
+    desc: "Skating, karate, yoga, archery, dance, debate and 10+ extracurriculars.",
+    color: "#f26724",
+  },
+  {
+    icon: "🛡️",
+    title: "Safe & Caring",
+    desc: "24×7 CCTV, mid-day meal, transport and dedicated extra care for every child.",
+    color: "#257a8f",
+  },
+];
 
 const Home = () => {
-
-  const [showVideo, setShowVideo] = useState(true);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 300) {
-        setShowVideo(false); // hide after scroll
-      } else {
-        setShowVideo(true);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
-            <div style={{ overflowX: "hidden", width: "100%" }}>
+    <div style={{ overflowX: "hidden", width: "100%" }}>
 
-    {/* <div> */}
-      {/* <div className="bg-dark text-white py-3">
-        <Container>
-          <Row className="align-items-center">
-            <Col md={9} className="d-flex flex-wrap align-items-center">
-              <i className="fas fa-phone-alt me-2"></i> (+91) 99523 21179 &nbsp;
-              | &nbsp;
-              <i className="fas fa-envelope me-2"></i>{" "}
-              hawkingsintlschool@gmail.com
-            </Col>
-            <Col md={3} className="text-md-end text-center">
-              <a
-                href="https://www.facebook.com/Hawkings-International-school-106662441994500/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white me-3"
-              >
-                <i className="fab fa-facebook"></i>
-              </a>
-              <a href="#" className="text-white me-3">
-                <i className="fab fa-twitter"></i>
-              </a>
-              <a href="#" className="text-white">
-                <i className="fab fa-instagram"></i>
-              </a>
-            </Col>
-          </Row>
-        </Container>
-      </div> */}
-
-
-      <div 
-      className={`video-hero ${showVideo ? "show" : "hide"}`} 
-      >
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="video-bg"
-        >
+      {/* ── VIDEO HERO ── */}
+      <div className="video-hero">
+        <video autoPlay muted loop playsInline className="video-bg">
           <source src={Video} type="video/mp4" />
         </video>
 
+        <motion.div
+          className="video-overlay"
+          initial="hidden"
+          animate="visible"
+          variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.18 } } }}
+        >
+          <motion.h1
+            variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.65 } } }}
+          >
+            Hawkings International School
+          </motion.h1>
 
+          <motion.p
+            variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.55 } } }}
+          >
+            Building Tomorrow's Leaders
+          </motion.p>
 
-
-        {/* <Container className="my-5">
-          <Row className="text-center">
-            <Col md={3}>
-              <h5>100% Results</h5>
-              <p>CBSE Board 2024-25</p>
-            </Col>
-            <Col md={3}>
-              <h5>Nursery to 10th</h5>
-              <p>Admissions Open</p>
-            </Col>
-            <Col md={3}>
-              <h5>Transport</h5>
-              <p>Facility Available</p>
-            </Col>
-            <Col md={3}>
-              <h5>CBSE Affiliated</h5>
-              <p>Aff No: 130722</p>
-            </Col>
-          </Row>
-        </Container> */}
-
-
-
-        {/* <Container className="my-5 text-center">
-          <h3 className="fw-bold">Academic Excellence</h3>
-          <p className="text-muted">
-            100% Result in 10th & 12th CBSE Board Exam 2024-25
-          </p>
-        </Container> */}
-
-
-        {/* Overlay Content */}
-        <div className="video-overlay">
-          <h1>Hawkings International School</h1>
-
-          <p>
-            {/* Shaping Young Minds for a Bright Future */}
-            Building Tomorrow’s Leaders
-
-            {/* Where Learning Begins with Care */}
-          </p>
-
-
-
-          <h5 className="mt-2">
-            {/* A Caring Place for Learning and Growth */}
-
-            {/* We create a safe and happy learning environment */}
+          <motion.h5
+            className="mt-2"
+            variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.55 } } }}
+          >
             Supporting Every Child to Grow and Shine
+          </motion.h5>
 
-
-          </h5>
-          {/* <h5 className="mt-3">
-            Helping students succeed in studies and life
-          </h5> */}
-
-          <p className="mt-2">
+          <motion.p
+            className="mt-2"
+            variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { duration: 0.5 } } }}
+          >
             Admissions Open | CBSE Curriculum
-          </p>
+          </motion.p>
 
-          <Link to="/login" >
-
-            <Button variant="success" className="mt-3">
-
-              Experience Hawkings
-
-            </Button>
-          </Link>
-
-        </div>
+          <motion.div
+            variants={{ hidden: { opacity: 0, scale: 0.85 }, visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } } }}
+          >
+            <Link to="/login">
+              <Button variant="success" className="mt-3 px-4 py-2 fw-bold">
+                Enquire Now →
+              </Button>
+            </Link>
+          </motion.div>
+        </motion.div>
       </div>
 
-      {/* CBSE Mandatory Disclosure Button */}
-      {/* <div className="bg-light pt-1 text-center">
+      {/* ── MARQUEE ── */}
+      <Marquee displayText={"ADMISSIONS OPEN FOR ACADEMIC YEAR 2026-27 FOR NURSERY TO GRADE X."} />
+
+      {/* ── STATS STRIP ── */}
+      {/* <div style={styles.statsStrip}>
         <Container>
-          <Row className="justify-content-center">
-            <Col sm={12}>
-              <Button
-                variant="danger"
-                size="lg"
-                className="rounded-pill px-4 py-2"
-                onClick={() => window.open(Disclosure, "_blank")}
-              >
-                CBSE MANDATORY DISCLOSURE
-              </Button>
-            </Col>
+          <Row className="g-3 justify-content-center">
+            {STATS.map((s, i) => (
+              <Col xs={6} sm={4} md="auto" key={i}>
+                <motion.div
+                  style={styles.statCard}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: i * 0.08 }}
+                >
+                  <span style={styles.statIcon}>{s.icon}</span>
+                  <span style={styles.statValue}>{s.value}</span>
+                  <span style={styles.statLabel}>{s.label}</span>
+                </motion.div>
+              </Col>
+            ))}
           </Row>
         </Container>
       </div> */}
 
-      {/* Moving Marquee Text */}
-      <Marquee displayText={"ADMISSIONS OPEN FOR ACADEMIC YEAR 2026-27 FOR NURSERY TO GRADE X."} />
+      {/* ── SLIDER ── */}
       <Slider />
-{/* <Container className="my-5 ">
-  <Row 
-  className="justify-content-center"
-  >
-    <Col md={12} >
-      <div className="admission-card">
-        <img
-          src="https://www.hawkingschool.com/img/admission-updt.jpg"
-          className="img-fluid"
-          alt="admission-banner"
-        />
-      </div>
-    </Col>
-  </Row>
-</Container> */}
 
-<div className="container-fluid px-2 px-sm-3 px-md-5 my-4 my-md-5">
-  <Row className="g-0">
-    <Col md={12}>
-      <div className="admission-card">
-        <img
-          src="https://www.hawkingschool.com/img/admission-updt.jpg"
-          className="img-fluid w-100"
-          alt="admission-banner"
-        />
-      </div>
-    </Col>
-  </Row>
-</div>
-
-      {/* <Container className="my-5">
-        <Row className="text-center">
-          <Col md={3}>
-            <h5>100% Results</h5>
-            <p>CBSE Board 2024-25</p>
-          </Col>
-          <Col md={3}>
-            <h5>Nursery to 10th</h5>
-            <p>Admissions Open</p>
-          </Col>
-          <Col md={3}>
-            <h5>Transport</h5>
-            <p>Facility Available</p>
-          </Col>
-          <Col md={3}>
-            <h5>CBSE Affiliated</h5>
-            <p>Aff No: 130722</p>
+      {/* ── ADMISSION BANNER ── */}
+      <div className="container-fluid px-2 px-sm-3 px-md-5 my-4 my-md-5">
+        <Row className="g-0">
+          <Col md={12}>
+            <div className="admission-card">
+              <img
+                src="https://www.hawkingschool.com/img/admission-updt.jpg"
+                className="img-fluid w-100"
+                alt="admission-banner"
+              />
+            </div>
           </Col>
         </Row>
-      </Container> */}
+      </div>
 
-
-
+      {/* ── ACADEMIC EXCELLENCE ── */}
       <Result />
 
+      {/* ── WHY CHOOSE US ── */}
+      <div style={styles.whySection}>
+        <Container>
+          <motion.div
+            style={styles.whyHeader}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <span style={styles.eyebrow}>Why Parents Choose Us</span>
+            <h2 style={styles.whyTitle}>The Hawkings Difference</h2>
+            <p style={styles.whySub}>
+              We go beyond academics — building confidence, character, and capability in every child.
+            </p>
+          </motion.div>
 
+          <Row className="g-3 g-md-4">
+            {WHY.map((item, i) => (
+              <Col xs={12} sm={6} lg={3} key={i}>
+                <motion.div
+                  style={styles.whyCard}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.45, delay: i * 0.1 }}
+                  whileHover={{ y: -6, boxShadow: "0 16px 40px rgba(24,55,105,0.14)" }}
+                >
+                  <div style={{ ...styles.whyIcon, background: `${item.color}15`, color: item.color }}>
+                    {item.icon}
+                  </div>
+                  <div style={{ ...styles.whyBar, background: item.color }} />
+                  <h5 style={styles.whyCardTitle}>{item.title}</h5>
+                  <p style={styles.whyCardDesc}>{item.desc}</p>
+                </motion.div>
+              </Col>
+            ))}
+          </Row>
+        </Container>
+      </div>
 
-      {/* <Container className="my-5">
-        <h3 className="text-center fw-bold mb-4">Our Toppers</h3>
-        <Row>
-          <Col md={3} className="text-center">
-            <img src="/images/topper1.jpg" className="img-fluid rounded" />
-            <h6>1st Rank</h6>
-            <p>V.D. Nikhil Vishnu</p>
-          </Col>
-        </Row>
-      </Container> */}
+      {/* ── PROGRAMS OFFERED ── */}
+      {/* <div style={styles.programsSection}>
+        <Container>
+          <motion.div
+            style={styles.whyHeader}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <span style={{ ...styles.eyebrow, background: "#4daeae18", color: "#257a8f" }}>Academic Programs</span>
+            <h2 style={styles.whyTitle}>Programs We Offer</h2>
+            <p style={styles.whySub}>
+              A structured CBSE journey from early childhood through secondary — every stage thoughtfully designed.
+            </p>
+          </motion.div>
 
+          <Row className="g-3 g-md-4">
+            {PROGRAMS.map((p, i) => (
+              <Col xs={12} sm={6} md={3} key={i}>
+                <motion.div
+                  style={{ ...styles.programCard, borderTop: `4px solid ${p.color}` }}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.45, delay: i * 0.1 }}
+                  whileHover={{ y: -6, boxShadow: "0 16px 36px rgba(24,55,105,0.13)" }}
+                >
+                  <div style={{ ...styles.programIcon, background: `${p.color}18`, color: p.color }}>
+                    {p.icon}
+                  </div>
+                  <h5 style={styles.programGrade}>{p.grade}</h5>
+                  <span style={{ ...styles.programRange, color: p.color }}>{p.range}</span>
+                  <p style={styles.programDesc}>{p.desc}</p>
+                </motion.div>
+              </Col>
+            ))}
+          </Row>
 
+          <motion.div
+            style={{ textAlign: "center", marginTop: "28px" }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.4 }}
+          >
+            <Link to="/academics" style={styles.leaderLink}>Explore Our Academics →</Link>
+          </motion.div>
+        </Container>
+      </div> */}
+
+      {/* ── ACTIVITIES ── */}
       <Activity />
 
-      {/* <Container className="my-5 text-center">
-        <h3 className="fw-bold">Our Facilities</h3>
-        <p>Modern classrooms, labs, and playground</p>
-        <Button variant="primary" href="/facilities">
-          View More
-        </Button>
-      </Container> */}
-<LabSection />
+      {/* ── LEADERSHIP ── */}
+      <div style={styles.leaderSection}>
+        <Container>
+          <motion.div
+            style={styles.whyHeader}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <span style={styles.eyebrow}>Our Leadership</span>
+            <h2 style={styles.whyTitle}>Message from Our Founders</h2>
+            <p style={styles.whySub}>
+              Guiding every student with vision, discipline and a deep belief in their potential.
+            </p>
+          </motion.div>
+
+          <Row className="g-4 justify-content-center">
+            {LEADERS.map((l, i) => (
+              <Col xs={12} sm={10} md={5} key={i}>
+                <motion.div
+                  style={styles.leaderCard}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.15 }}
+                  whileHover={{ y: -5, boxShadow: "0 18px 44px rgba(24,55,105,0.15)" }}
+                >
+                  <img src={l.img} alt={l.name} style={styles.leaderPhoto} />
+                  <div style={styles.leaderBody}>
+                    <span style={styles.leaderQuoteMark}>"</span>
+                    <p style={styles.leaderQuoteText}>{l.quote}</p>
+                    <div style={styles.leaderDivider} />
+                    <h5 style={styles.leaderName}>{l.name}</h5>
+                    <span style={styles.leaderRole}>{l.title} · {l.designation}</span>
+                  </div>
+                </motion.div>
+              </Col>
+            ))}
+          </Row>
+
+          <motion.div
+            style={{ textAlign: "center", marginTop: "28px" }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.3 }}
+          >
+            <Link to="/about" style={styles.leaderLink}>Meet All Our Leaders →</Link>
+          </motion.div>
+        </Container>
+      </div>
+
+      {/* ── LAB / FACILITIES PREVIEW ── */}
+      <LabSection />
+
+      {/* ── CAMPUS FACILITIES ── */}
+      <div style={styles.facilitiesSection}>
+        <Container>
+          <motion.div
+            style={styles.whyHeader}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <span style={{ ...styles.eyebrow, background: "#f267241a", color: "#f26724" }}>Campus Life</span>
+            <h2 style={styles.whyTitle}>Campus Facilities</h2>
+            <p style={styles.whySub}>
+              Everything a child needs to learn, grow and thrive — all within our safe and nurturing campus.
+            </p>
+          </motion.div>
+
+          <Row className="g-3 g-md-4">
+            {FACILITIES.map((f, i) => (
+              <Col xs={12} sm={6} md={3} key={i}>
+                <motion.div
+                  style={{ ...styles.facilityCard, borderBottom: `4px solid ${f.color}` }}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.45, delay: i * 0.1 }}
+                  whileHover={{ y: -6, boxShadow: `0 16px 36px ${f.color}30` }}
+                >
+                  <div style={{ ...styles.facilityIconWrap, background: `${f.color}18` }}>
+                    <span style={styles.facilityIcon}>{f.icon}</span>
+                  </div>
+                  <h5 style={{ ...styles.facilityTitle, color: f.color }}>{f.title}</h5>
+                  <ul style={styles.facilityList}>
+                    {f.points.map((pt, j) => (
+                      <li key={j} style={styles.facilityPoint}>
+                        <span style={{ color: f.color, marginRight: "6px", fontWeight: 700 }}>✓</span>{pt}
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              </Col>
+            ))}
+          </Row>
+        </Container>
+      </div>
+
+      {/* ── GALLERY PREVIEW ── */}
+      <div style={styles.gallerySection}>
+        <Container>
+          <motion.div
+            style={styles.whyHeader}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <span style={{ ...styles.eyebrow, background: "#4daeae18", color: "#257a8f" }}>Life at Hawkings</span>
+            <h2 style={styles.whyTitle}>Gallery</h2>
+            <p style={styles.whySub}>
+              Celebrations, sports, science and culture — a glimpse into every day at Hawkings.
+            </p>
+          </motion.div>
+
+          {/* Mosaic grid */}
+          <div style={styles.galleryGrid}>
+            {[
+              { src: galIndependence, label: "Independence Day",  style: styles.galCell },
+              { src: galKarate,       label: "Karate",            style: styles.galCellTall },
+              { src: skating,         label: "Skating",           style: styles.galCell },
+              { src: sankranti,       label: "Sankranti",         style: styles.galCellTall },
+              { src: galScienceExpo,  label: "Science Expo",      style: styles.galCell },
+              { src: cyclerally,      label: "Cycle Rally",       style: styles.galCell },
+              { src: galSports,       label: "Sports Meet",       style: styles.galCellTall },
+              { src: galRobotics,     label: "Robotics",          style: styles.galCell },
+              { src: onam,      label: "Onam",  style: styles.galCell },
+  
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                style={{ ...styles.galItem, ...item.style }}
+                initial={{ opacity: 0, scale: 0.94 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.07 }}
+                whileHover="hover"
+              >
+                <img src={item.src} alt={item.label} style={styles.galImg} />
+                <motion.div
+                  style={styles.galOverlay}
+                  variants={{ hover: { opacity: 1 } }}
+                  initial={{ opacity: 0 }}
+                  transition={{ duration: 0.25 }}
+                >
+                  <span style={styles.galLabel}>{item.label}</span>
+                </motion.div>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div
+            style={{ textAlign: "center", marginTop: "28px" }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+          >
+            <Link to="/gallery" style={styles.leaderLink}>View Full Gallery →</Link>
+          </motion.div>
+        </Container>
+      </div>
+
+      {/* ── INSTAGRAM / GALLERY ── */}
       <InstagramSlider />
 
-
-
-      {/* <Container className="my-5 text-center">
-        <h3 className="fw-bold">What Parents Say</h3>
-        <p>"Best school with quality education and care."</p>
-      </Container> */}
-
-
+      {/* ── PARENT FEEDBACK ── */}
       <ParentsFB />
 
+      {/* ── STUDENT FEEDBACK ── */}
       <StudentsFB />
 
-
+      {/* ── CTA SLIDER ── */}
       <CtaSlider />
 
-      {/* Director's Message Section */}
-      {/* <Director /> */}
-      <PosterShowcase  />
+      {/* ── POSTER SHOWCASE ── */}
+      <PosterShowcase />
 
+      {/* ── TEACHER TRAINING ── */}
       <TeacherTraining />
 
-
-
-
+      {/* ── FOOTER BANNER ── */}
       <FooterBanner />
-
-      {/* <div
-        className="admission-cta text-white text-center py-4"
-      >
-        <h4 className="mb-2 fw-bold">
-          Admissions Open 2026–27
-        </h4>
-
-        <p className="mb-3">
-          Enroll your child today and secure a bright future
-        </p>
-
-        <Button variant="light" className="px-4">
-          <span className="animated-button">
-          Apply Now
-          </span>
-        </Button>
-      </div> */}
-
-      {/* <div className="text-white text-center py-4" style={{ backgroundColor: "rgba(53, 79, 140, 0.9)" }}
-      >
-        <h4>Admissions Open 2026-27</h4>
-        <Button variant="light">Apply Now</Button>
-      </div> */}
-    </div >
+    </div>
   );
 };
 
 export default Home;
+
+const styles = {
+  statsStrip: {
+    background: "#fff",
+    borderBottom: "1px solid #eef2f8",
+    padding: "28px 16px",
+  },
+  statCard: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    gap: "4px",
+    padding: "16px 20px",
+    background: "#f8fafd",
+    borderRadius: "14px",
+    border: "1px solid #e8eef8",
+    textAlign: "center",
+    minWidth: "110px",
+    transition: "box-shadow 0.3s",
+  },
+  statIcon: { fontSize: "22px" },
+  statValue: {
+    fontSize: "clamp(18px, 3vw, 24px)",
+    fontWeight: 800,
+    color: BRAND,
+    lineHeight: 1.1,
+  },
+  statLabel: {
+    fontSize: "clamp(10px, 1.5vw, 12px)",
+    color: "#7a8b9a",
+    fontWeight: 500,
+    letterSpacing: "0.2px",
+    lineHeight: 1.3,
+  },
+  whySection: {
+    background: "#f4f7fb",
+    padding: "32px 16px",
+  },
+  whyHeader: {
+    textAlign: "center",
+    marginBottom: "16px",
+  },
+  eyebrow: {
+    display: "inline-block",
+    fontSize: "11px",
+    fontWeight: 700,
+    letterSpacing: "2px",
+    textTransform: "uppercase",
+    color: "#1d9e75",
+    background: "#1d9e7515",
+    padding: "5px 14px",
+    borderRadius: "50px",
+    marginBottom: "12px",
+  },
+  whyTitle: {
+    fontSize: "clamp(22px, 4vw, 32px)",
+    fontWeight: 800,
+    color: BRAND,
+    margin: "8px 0 10px",
+  },
+  whySub: {
+    fontSize: "clamp(13px, 2vw, 15px)",
+    color: "#6a7b8c",
+    maxWidth: "560px",
+    margin: "0 auto",
+    lineHeight: 1.7,
+  },
+  whyCard: {
+    background: "#fff",
+    borderRadius: "18px",
+    padding: "28px 22px 24px",
+    border: "1px solid #e8eef8",
+    boxShadow: "0 4px 16px rgba(24,55,105,0.06)",
+    height: "100%",
+    position: "relative",
+    overflow: "hidden",
+    transition: "box-shadow 0.3s, transform 0.3s",
+  },
+  whyIcon: {
+    width: "52px",
+    height: "52px",
+    borderRadius: "14px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    fontSize: "24px",
+    marginBottom: "16px",
+  },
+  whyBar: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    height: "4px",
+    borderRadius: "18px 18px 0 0",
+  },
+  whyCardTitle: {
+    fontSize: "clamp(14px, 2vw, 16px)",
+    fontWeight: 700,
+    color: "#1a2340",
+    marginBottom: "8px",
+  },
+  whyCardDesc: {
+    fontSize: "clamp(12px, 1.7vw, 13px)",
+    color: "#6a7b8c",
+    lineHeight: 1.65,
+    margin: 0,
+  },
+
+  // ── Programs section ──
+  programsSection: {
+    background: "linear-gradient(135deg, #f0f6ff 0%, #e8f4f4 100%)",
+    padding: "32px 16px",
+  },
+  programCard: {
+    background: "#fff",
+    borderRadius: "18px",
+    padding: "28px 22px 24px",
+    borderLeft: "1px solid #e8eef8",
+    borderRight: "1px solid #e8eef8",
+    borderBottom: "1px solid #e8eef8",
+    boxShadow: "0 4px 16px rgba(24,55,105,0.06)",
+    height: "100%",
+    transition: "box-shadow 0.3s, transform 0.3s",
+  },
+  programIcon: {
+    width: "52px",
+    height: "52px",
+    borderRadius: "14px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    fontSize: "24px",
+    marginBottom: "14px",
+  },
+  programGrade: {
+    fontSize: "clamp(15px, 2vw, 17px)",
+    fontWeight: 700,
+    color: "#1a2340",
+    marginBottom: "4px",
+  },
+  programRange: {
+    display: "block",
+    fontSize: "clamp(11px, 1.5vw, 12px)",
+    fontWeight: 600,
+    letterSpacing: "0.3px",
+    textTransform: "uppercase",
+    marginBottom: "12px",
+  },
+  programDesc: {
+    fontSize: "clamp(12px, 1.6vw, 13px)",
+    color: "#6a7b8c",
+    lineHeight: 1.65,
+    margin: 0,
+  },
+
+  // ── Leadership section ──
+  leaderSection: {
+    background: "#fff",
+    padding: "32px 16px",
+    borderTop: "1px solid #eef2f8",
+  },
+  leaderCard: {
+    display: "flex",
+    alignItems: "flex-start",
+    gap: "20px",
+    background: "#f8fafd",
+    borderRadius: "20px",
+    padding: "24px",
+    border: "1px solid #e4eaf6",
+    boxShadow: "0 4px 18px rgba(24,55,105,0.07)",
+    height: "100%",
+    transition: "box-shadow 0.3s, transform 0.3s",
+  },
+  leaderPhoto: {
+    width: "80px",
+    height: "80px",
+    borderRadius: "50%",
+    objectFit: "cover",
+    flexShrink: 0,
+    border: "3px solid rgb(24,55,105)",
+    boxShadow: "0 4px 12px rgba(24,55,105,0.2)",
+  },
+  leaderBody: {
+    flex: 1,
+    minWidth: 0,
+  },
+  leaderQuoteMark: {
+    fontSize: "42px",
+    lineHeight: 1,
+    color: "rgb(24,55,105)",
+    opacity: 0.2,
+    fontFamily: "Georgia, serif",
+    display: "block",
+    marginBottom: "-10px",
+  },
+  leaderQuoteText: {
+    fontSize: "clamp(13px, 1.7vw, 14px)",
+    color: "#3d4f62",
+    lineHeight: 1.7,
+    fontStyle: "italic",
+    marginBottom: "14px",
+  },
+  leaderDivider: {
+    width: "36px",
+    height: "2px",
+    background: "rgb(254,201,3)",
+    borderRadius: "2px",
+    marginBottom: "10px",
+  },
+  leaderName: {
+    fontSize: "clamp(14px, 1.8vw, 16px)",
+    fontWeight: 700,
+    color: "rgb(24,55,105)",
+    margin: "0 0 2px",
+  },
+  leaderRole: {
+    fontSize: "clamp(11px, 1.4vw, 12px)",
+    color: "#7a8b9a",
+    fontWeight: 500,
+  },
+  leaderLink: {
+    display: "inline-block",
+    padding: "10px 26px",
+    background: "rgb(24,55,105)",
+    color: "#fff",
+    borderRadius: "50px",
+    textDecoration: "none",
+    fontSize: "14px",
+    fontWeight: 600,
+    transition: "background 0.2s",
+  },
+
+  // ── Campus Facilities ──
+  facilitiesSection: {
+    background: "linear-gradient(135deg, #fff9f0, #fff3e6)",
+    padding: "32px 16px",
+  },
+  facilityCard: {
+    background: "#fff",
+    borderRadius: "18px",
+    padding: "28px 22px 24px",
+    borderLeft: "1px solid #eef2f8",
+    borderRight: "1px solid #eef2f8",
+    borderTop: "1px solid #eef2f8",
+    boxShadow: "0 4px 16px rgba(0,0,0,0.06)",
+    height: "100%",
+    transition: "box-shadow 0.3s, transform 0.3s",
+  },
+  facilityIconWrap: {
+    width: "60px",
+    height: "60px",
+    borderRadius: "16px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    marginBottom: "16px",
+  },
+  facilityIcon: { fontSize: "28px" },
+  facilityTitle: {
+    fontSize: "clamp(15px, 2vw, 17px)",
+    fontWeight: 700,
+    marginBottom: "12px",
+  },
+  facilityList: {
+    listStyle: "none",
+    padding: 0,
+    margin: 0,
+  },
+  facilityPoint: {
+    fontSize: "clamp(12px, 1.6vw, 13px)",
+    color: "#6a7b8c",
+    lineHeight: 1.7,
+    marginBottom: "4px",
+  },
+
+  // ── Gallery ──
+  gallerySection: {
+    background: "#f4f7fb",
+    padding: "32px 16px",
+  },
+  galleryGrid: {
+    display: "grid",
+    gridTemplateColumns: "1fr 1.3fr 1fr",
+    gridAutoRows: "180px",
+    gap: "10px",
+  },
+  galCell: {},
+  galCellTall: { gridRow: "span 2" },
+  galItem: {
+    position: "relative",
+    borderRadius: "14px",
+    overflow: "hidden",
+    cursor: "pointer",
+  },
+  galImg: {
+    width: "100%",
+    height: "100%",
+    objectFit: "cover",
+    display: "block",
+    transition: "transform 0.4s ease",
+  },
+  galOverlay: {
+    position: "absolute",
+    inset: 0,
+    background: "linear-gradient(to top, rgba(24,55,105,0.82) 0%, rgba(24,55,105,0.2) 60%, transparent 100%)",
+    display: "flex",
+    alignItems: "flex-end",
+    padding: "16px",
+  },
+  galLabel: {
+    color: "#fff",
+    fontSize: "13px",
+    fontWeight: 600,
+    letterSpacing: "0.3px",
+  },
+};

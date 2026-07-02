@@ -1,45 +1,48 @@
 .excellence-wrapper {
-  padding: 40px 20px;               
+  padding: 40px 20px;
   background: linear-gradient(135deg, rgb(24, 55, 105), #00594c);
   color: white;
   border-radius: 20px;
-  margin: 40px;                 
+  margin: 40px;
 }
 
-/* TITLE */
 .excellence-title {
-  font-size: clamp(22px, 4vw, 32px); /* ✅ Fluid scaling instead of fixed breakpoint */
+  font-size: clamp(22px, 4vw, 32px);
   font-weight: 800;
 }
 
+.excellence-subtitle {
+  font-size: clamp(13px, 2.5vw, 16px);
+  margin-top: 10px;
+}
 
-/* CARD */
 .reward-card {
   background: white;
   color: #333;
   border-radius: 16px;
-  padding: 16px 12px;               /* ✅ Slightly tighter on mobile */
-  margin-top: 0;                    /* ✅ Removed — Row g-3 handles spacing now */
+  padding: 16px 12px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  height: 100%;                     /* ✅ Equal height cards in same row */
+  height: 100%;
+  cursor: pointer;
 }
 
+.reward-card:hover {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
 
 .reward-card h4 {
   margin-top: 12px;
   font-weight: 700;
   color: rgb(24, 55, 105);
-    font-size: clamp(14px, 2.5vw, 18px); /* ✅ Prevents overflow on xs */
-
+  font-size: clamp(14px, 2.5vw, 18px);
 }
 
 .reward-card p {
-  font-size: clamp(11px, 2vw, 14px);   /* ✅ Scales down cleanly */
+  font-size: clamp(11px, 2vw, 14px);
   color: #666;
 }
 
-/* ICON */
 .reward-icon {
   width: 60px;
   height: 60px;
@@ -51,52 +54,9 @@
   margin: 0 auto;
 }
 
-/* MOBILE */
-@media (max-width: 768px) {
-  .excellence-title {
-    font-size: 24px;
-  }
-}
-
-
-.reward-card {
-  background: white;
-  color: #333;
-  border-radius: 16px;
-  padding: 20px;
-  margin-top: 20px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.reward-card:hover {
-  box-shadow: 0 12px 30px rgba(0,0,0,0.2);
-  cursor: pointer;
-}
-
-
-.excellence-subtitle {
-  font-size: clamp(13px, 2.5vw, 16px); /* ✅ Scales on small screens */
-  margin-top: 10px;
-   /* animation: glow 2s infinite ease-in-out; */
-
-}
-@keyframes glow {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-
 @media (max-width: 400px) {
   .excellence-wrapper {
-    margin: 24px 8px;              /* ✅ Tighter margin on very small phones */
+    margin: 24px 8px;
     border-radius: 14px;
   }
 

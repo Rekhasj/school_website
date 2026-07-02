@@ -17,7 +17,13 @@ const Gallery = () => {
 
   const renderCards = (data, isFeatured = false) => {
     return data.map((item, index) => (
-      <Col md={isFeatured && index === 0 ? 8 : 4} key={item.id} className="mb-4">
+      <Col
+        xs={12}
+        sm={isFeatured && index === 0 ? 12 : 6}
+        md={isFeatured && index === 0 ? 8 : 4}
+        key={item.id}
+        className="mb-4"
+      >
         <motion.div
           className="gallery-card"
           whileHover={{ scale: 1.05 }}

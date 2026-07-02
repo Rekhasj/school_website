@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import "./CtaSlider.css";
 
 import sports4 from "../../assets/Photos/sports_meet/sports_4.webp";
@@ -51,13 +52,27 @@ const CtaSlider = () => {
                     className={`cta-slide ${index === current ? "active" : ""}`}
                     style={{ backgroundImage: `url(${slide.image})` }}
                 >
-                    <div className="cta-overlay">
-                        <h2>{slide.title}</h2>
-                        <p>{slide.subtitle}</p>
-                        <Link to="/login">
-                            <button className="cta-btn" style={{ backgroundColor: colors.green }}>Contact Us</button>
-                        </Link>
-                    </div>
+                    {index === current && (
+                        <div className="cta-overlay">
+                            <AnimatePresence mode="wait">
+                                <motion.div
+                                    key={slide.id}
+                                    initial={{ opacity: 0, y: 28 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    exit={{ opacity: 0, y: -20 }}
+                                    transition={{ duration: 0.55 }}
+                                >
+                                    <h2>{slide.title}</h2>
+                                    <p>{slide.subtitle}</p>
+                                    <Link to="/login">
+                                        <button className="cta-btn" style={{ backgroundColor: colors.green }}>
+                                            Contact Us
+                                        </button>
+                                    </Link>
+                                </motion.div>
+                            </AnimatePresence>
+                        </div>
+                    )}
                 </div>
             ))}
         </div>

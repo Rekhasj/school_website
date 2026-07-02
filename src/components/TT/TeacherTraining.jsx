@@ -35,11 +35,25 @@ const TeacherTraining = () => {
                 ensuring every child receives the best learning experience.
               </p>
 
-              <ul className="training-list">
+              <motion.ul
+                className="training-list"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.12 } } }}
+              >
                 {trainingPoints.map((item, i) => (
-                  <li key={i}>{item}</li>
+                  <motion.li
+                    key={i}
+                    variants={{
+                      hidden: { opacity: 0, x: -20 },
+                      visible: { opacity: 1, x: 0, transition: { duration: 0.4 } },
+                    }}
+                  >
+                    {item}
+                  </motion.li>
                 ))}
-              </ul>
+              </motion.ul>
             </motion.div>
           </Col>
 

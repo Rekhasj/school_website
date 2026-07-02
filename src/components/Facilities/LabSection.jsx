@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 import "./LabSection.css";
 import { labData } from "../../data/lab";
 import { Link } from "react-router-dom";
@@ -62,9 +63,25 @@ const LabSection = () => {
   const items = [...labData, ...labData];
 
   return (
-    <section className="lab-section" >
-      <h2 className="lab-title">Our Facilities</h2>
-      <p className="lab-sub">Modern classrooms, labs, and spaces designed to inspire</p>
+    <section className="lab-section">
+      <motion.h2
+        className="lab-title"
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+      >
+        Our Facilities
+      </motion.h2>
+      <motion.p
+        className="lab-sub"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.15 }}
+      >
+        Modern classrooms, labs, and spaces designed to inspire
+      </motion.p>
 
       <div className="carousel-root">
         <button className="arrow left" onClick={() => handleArrow(-1)} aria-label="Previous">

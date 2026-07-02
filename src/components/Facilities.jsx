@@ -19,12 +19,12 @@ const CHECK_COLORS = [
 ];
 
 const STATIC_HIGHLIGHTS = [
-  "Engaging classrooms with learning aids",
-  "Resource bank for students and teachers",
-  "Well-equipped science laboratories",
-  "Digital classroom with multimedia content",
-  "Internet-enabled computer access",
-  "CCTV surveillance system",
+  "Green House Campus with lush open grounds",
+  "Kids Play Park for early learners",
+  "Mid-day Meal programme for all students",
+  "Digital Smart Classroom with multimedia tools",
+  "24×7 CCTV surveillance for campus safety",
+  "Extra care & support for slow learners",
 ];
 
 // ── Framer variants ──────────────────────────────────────────────

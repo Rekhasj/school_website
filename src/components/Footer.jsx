@@ -14,9 +14,10 @@ import {
 import "./Footer.css";
 import { Link } from "react-router-dom";
 
-// 🔧 Single source of truth — change once, updates everywhere
 const PHONE = "+919952321179";
-const PHONE_DISPLAY = "(+91) 99523 21179";
+const PHONE_DISPLAY = "+91 99523 21179";
+const PHONE2 = "+919676941786";
+const PHONE2_DISPLAY = "+91 96769 41786";
 const WHATSAPP = "919952321179";
 
 const Footer = () => {
@@ -66,16 +67,18 @@ const Footer = () => {
               <p className="small mb-2 address">
                 <FaMapMarkerAlt className="ci-icon" />
                 <span>
-                  Palaripalle, Vendugampalle Post,
+                  Near D.K.Palli, Kuppam Municipality,
                   <br />
-                  Kuppam Mandal, Chittoor Dist,
-                  <br />
-                  Andhra Pradesh - 517425
+                  Chittoor Dt., Andhra Pradesh – 517 425
                 </span>
               </p>
               <a href={`tel:${PHONE}`} className="contact-phone">
                 <FaPhone className="ci-icon" />
-                {PHONE_DISPLAY}
+                {PHONE_DISPLAY} 
+              </a>
+              <a href={`tel:${PHONE2}`} className="contact-phone">
+                <FaPhone className="ci-icon" />
+                {PHONE2_DISPLAY}
               </a>
             </div>
           </Col>

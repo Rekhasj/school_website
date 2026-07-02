@@ -47,10 +47,8 @@ const StudentsFB = () => {
                             whileHover={{ scale: 1.08 }}
                         >
                             {/* Header */}
-                            <div className="card-header">
-                                <img src={""}
-                                // {item.image} 
-                                alt={item.name} />
+                            <div className="fb-card-header">
+                                <img src={item.image} alt={item.name} />
                                 <div>
                                     <h5>{item.name}</h5>
                                     <span>{item.class}</span>

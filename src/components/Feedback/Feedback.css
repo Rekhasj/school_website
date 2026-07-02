@@ -47,7 +47,7 @@
 }
 
 /* HEADER */
-.card-header {
+.fb-card-header {
   display: flex;
   align-items: center;
   gap: 12px;

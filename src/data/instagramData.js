@@ -3,30 +3,44 @@
 export const instagramData = [
     {
         id: 1,
-        reelId: "DWwApEGkwLD",
+        reelId: "DXRDdNvk8tu",
     },
-    {
+ {
         id: 2,
-        reelId: "DWn6zLEE2qm",
-    },
-    {
-        id: 7,
-        reelId: "DUpguiAExVE",
+        reelId: "DZfmCtPT-OT",
     },
     {
         id: 3,
-        reelId: "DVlJKFiE5Jw",
+        reelId: "DWwApEGkwLD",
     },
     {
         id: 4,
+        reelId: "DWn6zLEE2qm",
+    },
+
+    {
+        id: 5,
+        reelId: "DXMUWz2E_M9",
+    },
+    
+     {
+        id: 6,
+        reelId: "DUpguiAExVE",
+    },
+    {
+        id: 7,
+        reelId: "DVlJKFiE5Jw",
+    },
+    {
+        id: 8,
         reelId: "DWlHUFPE1xM",
     },
     {
-        id: 5,
+        id: 9,
         reelId: "DW0m2r-E_nZ",
     },
     {
-        id: 6,
+        id: 10,
         reelId: "DUznm8bE3pl",
     },
 ];
