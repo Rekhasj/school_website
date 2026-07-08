@@ -16,7 +16,7 @@ import christmas from "../assets/Photos/christmas_day/christmas_2.webp";
 import independence from "../assets/Photos/independence_day/independence_5.webp";
 import color from "../assets/Photos/colors_day/color_14.webp";
 import kidsExpo from "../assets/Photos/kids_expo/4.webp";
-import scienceExpo1 from "../assets/Photos/science_expo_photos/science_expo_5.jpg";
+import scienceExpo1 from "../assets/Photos/science_expo_photos/science_expo_5.JPG";
 
 const slides = [
     { src: teluguday, label: "Telugu Day" },

@@ -5,7 +5,7 @@ import training from '../../assets/Photos/Training/1.jpeg'
 import training2 from '../../assets/Photos/Training/2.jpeg'
 import training3 from '../../assets/Photos/Training/3.jpeg'
 import training4 from '../../assets/Photos/Training/4.jpeg'
-import nadiya from '../../assets/Photos/board_members/nadiya.jpg'
+import nadiya from '../../assets/Photos/board_members/nadiya.JPG'
 import './StaffSection.css'
 
 const staffData = [

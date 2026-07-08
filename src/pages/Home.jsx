@@ -37,7 +37,7 @@ import onam   from "../assets/Photos/onam/1.webp";
 import sankranti   from "../assets/Photos/sankranti/pongal_9.webp";
 import skating   from "../assets/Photos/skating.jpeg";
 import cyclerally   from "../assets/Photos/cyclerally.jpeg";
-import srkg   from "../assets/Photos/kids_expo/srkg1.jpg";
+import srkg   from "../assets/Photos/kids_expo/srkg1.JPG";
 
 
 const BRAND = "rgb(24,55,105)";
