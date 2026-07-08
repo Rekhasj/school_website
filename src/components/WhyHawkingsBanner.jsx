@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import "./WhyHawkingsBanner.css";
 
-import kids_expo from "../assets/Photos/kids_expo/srkg.JPG";
+import kids_expo from "../assets/Photos/kids_expo/srkg.jpg";
 import skating from "../assets/Photos/skating.jpeg";
 import sports from "../assets/Photos/sports_meet/sports_4.webp";
 import shooting from "../assets/Photos/shooting/shooting_2.webp";
