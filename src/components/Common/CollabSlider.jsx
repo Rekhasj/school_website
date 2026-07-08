@@ -8,6 +8,13 @@ import viswam from "../../assets/Photos/poster/viswam-edutech.jpeg";
 import allen from "../../assets/Photos/poster/allen-online.png";
 
 const posters = [
+    {
+    src: allen,
+    alt: "Hawkings International School ALLEN Online academic excellence program",
+    title: "ALLEN Online academic excellence program",
+    description:
+      "Printed ALLEN study material, recorded lectures, regular tests on the latest syllabus, round-the-clock AI doubt support, and IIT foundation classes taught by Hawkings staff.",
+  },
   {
     src: innostem,
     alt: "Hawkings International School in collaboration with InnoSTEM Robotics Academy",
@@ -22,13 +29,7 @@ const posters = [
     description:
       "Viswam Edutech brings experiential English learning to Hawkings, covering listening, speaking, reading and writing alongside phonetics, grammar and a dedicated spell-bee program.",
   },
-  {
-    src: allen,
-    alt: "Hawkings International School ALLEN Online academic excellence program",
-    title: "ALLEN Online academic excellence program",
-    description:
-      "Printed ALLEN study material, recorded lectures, regular tests on the latest syllabus, round-the-clock AI doubt support, and IIT foundation classes taught by Hawkings staff.",
-  },
+
 ];
 
 const CollabSlider = ({
