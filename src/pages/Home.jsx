@@ -4,7 +4,7 @@ import { Container, Row, Col, Button } from "react-bootstrap";
 import { motion } from "framer-motion";
 import Marquee from "../components/Common/Marquee";
 import Activity from "../components/Activity/Activity";
-// import Video from "../assets/video/school_video.mp4";
+import Video from "../assets/video/school_video.mp4";
 import "../styles/Home.css";
 import { Link } from "react-router-dom";
 import Result from "../components/Common/Result";
@@ -188,7 +188,7 @@ const Home = () => {
     <div style={{ overflowX: "hidden", width: "100%" }}>
 
       {/* ── VIDEO HERO ── */}
-      {/* <div className="video-hero">
+      <div className="video-hero">
         <video autoPlay muted loop playsInline className="video-bg">
           <source src={Video} type="video/mp4" />
         </video>
@@ -235,7 +235,7 @@ const Home = () => {
             </Link>
           </motion.div>
         </motion.div>
-      </div> */}
+      </div>
 
       {/* ── MARQUEE ── */}
       <Marquee displayText={"ADMISSIONS OPEN FOR ACADEMIC YEAR 2026-27 FOR NURSERY TO GRADE X."} />
