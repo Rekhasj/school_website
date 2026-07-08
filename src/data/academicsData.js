@@ -12,6 +12,8 @@ import primary from '../assets/Photos/science_expo_photos/science_expo_3.webp'
 import banner from '../assets/banner_images/banner_2.webp'
 import banner2 from '../assets/Photos/staff/1.webp'
 import sports from '../assets/Photos/sports_meet/sports_3.webp'
+import middleSchool from '../assets/Photos/academics/middle_school_1.jpg'
+import secondarySchool from '../assets/Photos/academics/secondary_school_1.jpg'
 
  const BLUE  = "rgb(24,55,105)";
 const GREEN = "#00594c";
@@ -130,7 +132,7 @@ export const SECTIONS = [
       subtitle: "Grades VI – VIII · Ages 11–14",
       color: GREEN,
       textColor: "#fff",
-      image: "/images/academics/middle.jpg",
+      image: middleSchool,
       gallery: [
         "/images/academics/middle-1.jpg",
         "/images/academics/middle-2.jpg",
@@ -154,7 +156,7 @@ export const SECTIONS = [
       subtitle: "Grades IX – X · Ages 14–16",
       color: SKY,
       textColor: BLUE,
-      image: "/images/academics/secondary.jpg",
+      image: secondarySchool,
       gallery: [
         "/images/academics/secondary-1.jpg",
         "/images/academics/secondary-2.jpg",

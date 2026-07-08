@@ -104,7 +104,7 @@ const News = () => {
           <p style={{ margin: 0, fontSize: "clamp(13px, 2vw, 15px)", opacity: 0.9 }}>
             Want to stay updated on all school events?
           </p>
-          <Link to="/login" style={{ ...styles.ctaBtn }}>
+          <Link to="/contact-us" style={{ ...styles.ctaBtn }}>
             Contact Us
           </Link>
         </motion.div>

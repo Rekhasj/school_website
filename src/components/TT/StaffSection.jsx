@@ -5,6 +5,7 @@ import training from '../../assets/Photos/Training/1.jpeg'
 import training2 from '../../assets/Photos/Training/2.jpeg'
 import training3 from '../../assets/Photos/Training/3.jpeg'
 import training4 from '../../assets/Photos/Training/4.jpeg'
+import nadiya from '../../assets/Photos/board_members/nadiya.jpg'
 import './StaffSection.css'
 
 const staffData = [
@@ -24,18 +25,30 @@ const staffData = [
   {
     name: "Ms. Nadiya",
     role: "Kinder Garten Co-Ordinator",
-    image: "https://via.placeholder.com/300",
+    image: nadiya,
     bio: "7+ years of experience in academic leadership and CBSE curriculum."
   },
   {
-    name: "Mr. Ravi Kumar",
-    role: "Mathematics Teacher",
+    name: "Mr. R",
+    role: "Mathematics Head",
     image: "https://via.placeholder.com/300",
     bio: "Expert in conceptual learning and Olympiad training."
   },
   {
-    name: "Ms. Sneha",
-    role: "Science Teacher",
+    name: "Ms. S",
+    role: "Science Head",
+    image: "https://via.placeholder.com/300",
+    bio: "Hands-on experimental learning specialist."
+  },
+  {
+    name: "Ms. K",
+    role: "Social Head",
+    image: "https://via.placeholder.com/300",
+    bio: "Hands-on experimental learning specialist."
+  },
+  {
+    name: "Ms. L",
+    role: "English Head",
     image: "https://via.placeholder.com/300",
     bio: "Hands-on experimental learning specialist."
   }

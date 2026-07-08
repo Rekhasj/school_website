@@ -4,7 +4,7 @@ import { Container, Row, Col, Button } from "react-bootstrap";
 import { motion } from "framer-motion";
 import Marquee from "../components/Common/Marquee";
 import Activity from "../components/Activity/Activity";
-import Video from "../assets/video/video_2.mp4";
+// import Video from "../assets/video/school_video.mp4";
 import "../styles/Home.css";
 import { Link } from "react-router-dom";
 import Result from "../components/Common/Result";
@@ -17,6 +17,10 @@ import LabSection from "../components/Facilities/LabSection";
 import FooterBanner from "../components/Common/FooterBanner";
 import TeacherTraining from "../components/TT/TeacherTraining";
 import PosterShowcase from "../components/Common/PosterShowcase";
+import CollabSlider from "../components/Common/CollabSlider";
+import CardStackSlider from "../components/CardStackSlider";
+import WhyHawkingsBanner from "../components/WhyHawkingsBanner";
+import CampusFacilities from "../components/CampusFacilities";
 import Hafeez from "../assets/Photos/board_members/hafeez.jpeg";
 import Shabir from "../assets/Photos/board_members/shabir.jpeg";
 import Rafeek from "../assets/Photos/board_members/rafeek.jpeg";
@@ -24,7 +28,7 @@ import Rafeek from "../assets/Photos/board_members/rafeek.jpeg";
 // Gallery photos — real Hawkings moments
 import galIndependence  from "../assets/Photos/independence_day/independence_5.webp";
 import galKarate        from "../assets/Photos/karate/karate_2.webp";
-import galSports        from "../assets/Photos/sports_meet/sports_2.webp";
+import annual_day        from "../assets/Photos/annual_day.jpeg";
 import galKrishna       from "../assets/Photos/krishnaDay/krishnaDay.webp";
 import galRobotics      from "../assets/Photos/robotics/r3.jpeg";
 import galScienceExpo   from "../assets/Photos/science_expo_photos/science_expo_1.webp";
@@ -33,6 +37,7 @@ import onam   from "../assets/Photos/onam/1.webp";
 import sankranti   from "../assets/Photos/sankranti/pongal_9.webp";
 import skating   from "../assets/Photos/skating.jpeg";
 import cyclerally   from "../assets/Photos/cyclerally.jpeg";
+import srkg   from "../assets/Photos/kids_expo/srkg1.jpg";
 
 
 const BRAND = "rgb(24,55,105)";
@@ -45,8 +50,9 @@ const FACILITIES = [
     color: "#1d9e75",
     points: [
       // "Regular health check-ups",
-      "First-aid trained staff on campus",
+      // "First-aid trained staff on campus",
       "Wellness & yoga programme",
+      "Sick room / medical room available on campus"
     ],
   },
   {
@@ -74,7 +80,7 @@ const FACILITIES = [
     title: "Nutrition",
     color: "#f26724",
     points: [
-      "Mid-day nutritious meal daily",
+      // "Mid-day nutritious meal daily",
       // "Hygienic kitchen facility",
       "Nutritious Food Entertained",
       "Junk Food Prohibited"
@@ -153,7 +159,8 @@ const WHY = [
   {
     icon: "📚",
     title: "CBSE Excellence",
-    desc: "100% board results every year with a structured, activity-based curriculum.",
+    desc: "100% board results with a structured, activity-based curriculum.",
+    // desc: "100% board results every year with a structured, activity-based curriculum.",
     color: BRAND,
   },
   {
@@ -171,7 +178,7 @@ const WHY = [
   {
     icon: "🛡️",
     title: "Safe & Caring",
-    desc: "24×7 CCTV, mid-day meal, transport and dedicated extra care for every child.",
+    desc: "24×7 CCTV, transport and dedicated extra care for every child.",
     color: "#257a8f",
   },
 ];
@@ -181,7 +188,7 @@ const Home = () => {
     <div style={{ overflowX: "hidden", width: "100%" }}>
 
       {/* ── VIDEO HERO ── */}
-      <div className="video-hero">
+      {/* <div className="video-hero">
         <video autoPlay muted loop playsInline className="video-bg">
           <source src={Video} type="video/mp4" />
         </video>
@@ -221,14 +228,14 @@ const Home = () => {
           <motion.div
             variants={{ hidden: { opacity: 0, scale: 0.85 }, visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } } }}
           >
-            <Link to="/login">
+            <Link to="/contact-us">
               <Button variant="success" className="mt-3 px-4 py-2 fw-bold">
                 Enquire Now →
               </Button>
             </Link>
           </motion.div>
         </motion.div>
-      </div>
+      </div> */}
 
       {/* ── MARQUEE ── */}
       <Marquee displayText={"ADMISSIONS OPEN FOR ACADEMIC YEAR 2026-27 FOR NURSERY TO GRADE X."} />
@@ -257,10 +264,11 @@ const Home = () => {
       </div> */}
 
       {/* ── SLIDER ── */}
-      <Slider />
+      {/* <Slider /> */}
 
+  
       {/* ── ADMISSION BANNER ── */}
-      <div className="container-fluid px-2 px-sm-3 px-md-5 my-4 my-md-5">
+      <div className="container-fluid px-2 px-sm-3 px-md-5 my-4 my-md-4">
         <Row className="g-0">
           <Col md={12}>
             <div className="admission-card">
@@ -274,8 +282,15 @@ const Home = () => {
         </Row>
       </div>
 
+          {/* ── NEW: CARD STACK SLIDER (compare with Slider above) ── */}
+      <CardStackSlider />
+
+
       {/* ── ACADEMIC EXCELLENCE ── */}
       <Result />
+
+      {/* ── NEW: WHY HAWKINGS BANNER (compare with Why Choose Us below) ── */}
+      <WhyHawkingsBanner />
 
       {/* ── WHY CHOOSE US ── */}
       <div style={styles.whySection}>
@@ -428,8 +443,11 @@ const Home = () => {
       {/* ── LAB / FACILITIES PREVIEW ── */}
       <LabSection />
 
-      {/* ── CAMPUS FACILITIES ── */}
-      <div style={styles.facilitiesSection}>
+      {/* ── NEW: IMAGE-BASED CAMPUS FACILITIES (compare with original below) ── */}
+      <CampusFacilities />
+
+      {/* ── CAMPUS FACILITIES (original) ── */}
+      {/* <div style={styles.facilitiesSection}>
         <Container>
           <motion.div
             style={styles.whyHeader}
@@ -472,7 +490,7 @@ const Home = () => {
             ))}
           </Row>
         </Container>
-      </div>
+      </div> */}
 
       {/* ── GALLERY PREVIEW ── */}
       <div style={styles.gallerySection}>
@@ -495,12 +513,16 @@ const Home = () => {
           <div style={styles.galleryGrid}>
             {[
               { src: galIndependence, label: "Independence Day",  style: styles.galCell },
-              { src: galKarate,       label: "Karate",            style: styles.galCellTall },
-              { src: skating,         label: "Skating",           style: styles.galCell },
+              { src: galKarate,       label: "Karate",            style: styles.galCell },
+            { src: annual_day,       label: "Annual Day",       style: styles.galCell },
+          
               { src: sankranti,       label: "Sankranti",         style: styles.galCellTall },
-              { src: galScienceExpo,  label: "Science Expo",      style: styles.galCell },
+              // { src: galScienceExpo,  label: "Science Expo",      style: styles.galCell },
+                                          { src: srkg,       label: "Kids Expo",       style: styles.galCellTall },
+
               { src: cyclerally,      label: "Cycle Rally",       style: styles.galCell },
-              { src: galSports,       label: "Sports Meet",       style: styles.galCellTall },
+               { src: skating,         label: "Skating",           style: styles.galCellTall },
+        
               { src: galRobotics,     label: "Robotics",          style: styles.galCell },
               { src: onam,      label: "Onam",  style: styles.galCell },
   
@@ -550,8 +572,11 @@ const Home = () => {
       {/* ── CTA SLIDER ── */}
       <CtaSlider />
 
-      {/* ── POSTER SHOWCASE ── */}
-      <PosterShowcase />
+      {/* ── NEW: COLLAB SLIDER (compare with Poster Showcase below) ── */}
+      <CollabSlider />
+
+      {/* ── POSTER SHOWCASE (original) ── */}
+      {/* <PosterShowcase /> */}
 
       {/* ── TEACHER TRAINING ── */}
       <TeacherTraining />
@@ -599,7 +624,7 @@ const styles = {
   },
   whySection: {
     background: "#f4f7fb",
-    padding: "32px 16px",
+    padding: "56px 16px 32px",
   },
   whyHeader: {
     textAlign: "center",
@@ -846,7 +871,7 @@ const styles = {
   },
   galleryGrid: {
     display: "grid",
-    gridTemplateColumns: "1fr 1.3fr 1fr",
+    gridTemplateColumns: "1fr 1fr 1fr",
     gridAutoRows: "180px",
     gap: "10px",
   },

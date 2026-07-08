@@ -91,7 +91,7 @@ const Footer = () => {
               <Link to="/facilities">Facilities</Link>
               <Link to="/gallery">Gallery</Link>
               <Link to="/news">News</Link>
-              <Link to="/login">Contact</Link>
+              <Link to="/contact-us">Contact</Link>
               <a
                 href={Disclosure}
                 target="_blank"

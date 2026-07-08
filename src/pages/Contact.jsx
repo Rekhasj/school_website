@@ -1,5 +1,5 @@
 import { Navigate } from "react-router-dom";
 
 export default function Contact() {
-  return <Navigate to="/login" replace />;
+  return <Navigate to="/contact-us" replace />;
 }

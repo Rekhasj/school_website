@@ -26,7 +26,7 @@ const FooterBanner = () => {
 
           <button
             className="banner-btn flex-shrink-0"
-            onClick={() => navigate("/login")}
+            onClick={() => navigate("/contact-us")}
           >
             Enquire now
           </button>

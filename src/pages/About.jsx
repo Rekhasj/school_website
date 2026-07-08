@@ -18,7 +18,7 @@ const statData = [
   { number: 100,  suffix: "%", label: "Results"  },
   { number: 7,    suffix: "+", label: "Years"    },
   { number: 1000, suffix: "+", label: "Students" },
-  { number: 100,  suffix: "+", label: "Faculty"  },
+  { number: 100,  suffix: "+", label: "Staff"  },
 ];
 
 // Single flat nav — Vision/Mission/Goal/Dream elevated to top level

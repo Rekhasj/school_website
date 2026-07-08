@@ -64,7 +64,7 @@ const CtaSlider = () => {
                                 >
                                     <h2>{slide.title}</h2>
                                     <p>{slide.subtitle}</p>
-                                    <Link to="/login">
+                                    <Link to="/contact-us">
                                         <button className="cta-btn" style={{ backgroundColor: colors.green }}>
                                             Contact Us
                                         </button>

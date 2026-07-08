@@ -111,7 +111,7 @@ Academics
   Mandatory
    Disclosure
 </Nav.Link> */}
-            <Nav.Link  className="nav-item-custom" as={Link} to="/login" onClick={() => setExpanded(false)}>
+            <Nav.Link  className="nav-item-custom" as={Link} to="/contact-us" onClick={() => setExpanded(false)}>
               Contact
             </Nav.Link>
             <Nav.Link  className="nav-item-custom" as={Link} to="/faq" onClick={() => setExpanded(false)}>
