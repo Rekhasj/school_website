@@ -1,5 +1,5 @@
 
-import srkg1 from '../assets/Photos/academics/srkg1.jpeg'
+import srkg1 from '../assets/Photos/academics/srkg1.webp'
 import srkg2 from '../assets/Photos/kids_expo/7.webp'
 import srkg3 from '../assets/Photos/kids_expo/8.webp'
 import prekg from '../assets/Photos/kids_expo/3.webp'
@@ -12,9 +12,9 @@ import primary from '../assets/Photos/science_expo_photos/science_expo_3.webp'
 import banner from '../assets/banner_images/banner_2.webp'
 import banner2 from '../assets/Photos/staff/1.webp'
 import sports from '../assets/Photos/sports_meet/sports_3.webp'
-import middleSchool from '../assets/Photos/academics/middle_school_1.JPG'
-import secondarySchool from '../assets/Photos/academics/secondary_school_1.JPG'
-import secondaryschool from '../assets/Photos/academics/secondary_school.jpeg'
+import middleSchool from '../assets/Photos/academics/middle_school_1.webp'
+import secondarySchool from '../assets/Photos/academics/secondary_school_1.webp'
+import secondaryschool from '../assets/Photos/academics/secondary_school.webp'
 
  const BLUE  = "rgb(24,55,105)";
 const GREEN = "#00594c";
@@ -36,8 +36,8 @@ export const SECTIONS = [
       image:prekg,
       gallery: [
         prekg1,
-        "/images/academics/playschool-2.jpg",
-        "/images/academics/playschool-3.jpg",
+        "/images/academics/playschool-2.webp",
+        "/images/academics/playschool-3.webp",
       ],
       description:
         "Our Play School introduces the youngest learners to a warm, stimulating environment filled with sensory play, music, storytelling, and structured free time. Children develop social skills, curiosity, and confidence in a nurturing space designed for their earliest years.",
@@ -61,7 +61,7 @@ export const SECTIONS = [
       gallery: [
         jrkg1,
         jrkg2,
-        "/images/academics/kg-3.jpg",
+        "/images/academics/kg-3.webp",
       ],
       description:
         "Kindergarten at Hawkings blends Play-Way and Montessori techniques aligned with the CBSE national curriculum. Children are introduced to alphabet sounds, numbers, and short sentences through tracing, role-play, and nature walks — building confidence before they enter Grade 1.",
@@ -111,9 +111,9 @@ export const SECTIONS = [
       textColor: "#fff",
       image: primary,
       gallery: [
-        "/images/academics/primary-1.jpg",
-        "/images/academics/primary-2.jpg",
-        "/images/academics/primary-3.jpg",
+        "/images/academics/primary-1.webp",
+        "/images/academics/primary-2.webp",
+        "/images/academics/primary-3.webp",
       ],
       description:
         "Grades I to V follow a unique thematic integrated transdisciplinary approach across all subject areas. Our programme emphasises foundational literacy and numeracy while weaving in environmental awareness, technology, and three languages to build well-rounded learners.",
@@ -135,9 +135,9 @@ export const SECTIONS = [
       textColor: "#fff",
       image: middleSchool,
       gallery: [
-        "/images/academics/middle-1.jpg",
-        "/images/academics/middle-2.jpg",
-        "/images/academics/middle-3.jpg",
+        "/images/academics/middle-1.webp",
+        "/images/academics/middle-2.webp",
+        "/images/academics/middle-3.webp",
       ],
       description:
         "Middle School introduces subject-specific learning with dedicated Science and Social Studies streams. Students begin lab-based experiments, critical thinking exercises, and technology integration, preparing them for the rigour of secondary education.",
@@ -159,9 +159,9 @@ export const SECTIONS = [
       textColor: BLUE,
       image: secondaryschool,
       gallery: [
-        "/images/academics/secondary-1.jpg",
-        "/images/academics/secondary-2.jpg",
-        "/images/academics/secondary-3.jpg",
+        "/images/academics/secondary-1.webp",
+        "/images/academics/secondary-2.webp",
+        "/images/academics/secondary-3.webp",
       ],
       description:
         "Secondary School is where academic excellence meets Board examination preparation. Aligned with CBSE national standards, students receive deep subject teaching, analytical reasoning development, and exam-oriented practice to ensure every scholar achieves their potential.",

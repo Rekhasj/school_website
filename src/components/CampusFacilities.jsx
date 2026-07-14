@@ -7,7 +7,7 @@ import yoga from "../assets/Photos/yoga_day/yoga_1.jpeg";
 import van from "../assets/Photos/van.jpeg";
 import cctv from "../assets/Photos/cctv.jpg";
 import firstDay from "../assets/Photos/firstDay/firstDayMain.webp";
-import sandwich from "../assets/Photos/academics/sandwich.jpeg";
+import sandwich from "../assets/Photos/academics/sandwich.webp";
 
 const facilities = [
   {

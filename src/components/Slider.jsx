@@ -4,10 +4,10 @@ import Carousel from "react-bootstrap/Carousel";
 // import banner1 from "../assets/banner_images/banner_1.webp";
 import banner2 from "../assets/banner_images/banner_2.webp";
 import banner3 from "../assets/banner_images/banner_3.webp";
-import school_banner_1 from "../assets/banner_images/school_banner_1.png";
-import banner5 from "../assets/banner_images/banner_5.JPG";
-import banner6 from "../assets/banner_images/banner_6.JPG";
-import banner1 from "../assets/banner_images/banner_1.JPG";
+import school_banner_1 from "../assets/banner_images/school_banner_1.webp";
+import banner5 from "../assets/banner_images/banner_5.webp";
+import banner6 from "../assets/banner_images/banner_6.webp";
+import banner1 from "../assets/banner_images/banner_1.webp";
 
 const bannerImages = [banner1, banner2,  school_banner_1, banner5,banner6];
 

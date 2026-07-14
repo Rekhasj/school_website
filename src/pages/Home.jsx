@@ -21,9 +21,9 @@ import CollabSlider from "../components/Common/CollabSlider";
 import CardStackSlider from "../components/CardStackSlider";
 import WhyHawkingsBanner from "../components/WhyHawkingsBanner";
 import CampusFacilities from "../components/CampusFacilities";
-import Hafeez from "../assets/Photos/board_members/hafeez.jpeg";
-import Shabir from "../assets/Photos/board_members/shabir.jpeg";
-import Rafeek from "../assets/Photos/board_members/rafeek.jpeg";
+import Hafeez from "../assets/Photos/board_members/hafeez.webp";
+import Shabir from "../assets/Photos/board_members/shabir.webp";
+import Rafeek from "../assets/Photos/board_members/rafeek.webp";
 
 // Gallery photos — real Hawkings moments
 import galIndependence  from "../assets/Photos/independence_day/independence_5.webp";

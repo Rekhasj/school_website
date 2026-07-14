@@ -93,22 +93,22 @@ import banner1 from "../assets/banner_images/banner_1.webp";
 import banner2 from "../assets/banner_images/banner_2.webp";
 import banner3 from "../assets/banner_images/banner_3.webp";
 import banner4 from "../assets/Photos/drone/schooll_night_view.jpeg";
-import banner5 from "../assets/Photos/academics/01__Group.jpg";
-import banner6 from "../assets/banner_images/banner_6.jpg";
-import banner7 from "../assets/banner_images/banner_5.jpg";
+import banner5 from "../assets/Photos/academics/01__Group.webp";
+import banner6 from "../assets/banner_images/banner_6.webp";
+import banner7 from "../assets/banner_images/banner_5.webp";
 
 import crosscountryrace from '../assets/Photos/crosscountryrace.jpeg';
 import cyclerally from '../assets/Photos/cyclerally.jpeg';
 import horseriding from '../assets/Photos/horseriding.jpeg';
 import skating from '../assets/Photos/skating.jpeg';
 
-import farm from "../assets/Photos/academics/farm.jpeg";
-import sandwich from "../assets/Photos/academics/sandwich.jpeg";
-import graduationDay from '../assets/banner_images/banner_6.JPG'
-import gd1 from '../assets/Photos/graduation_day/1.JPG'
-import gd2 from '../assets/Photos/graduation_day/2.JPG'
-import gd3 from '../assets/Photos/graduation_day/3.JPG'
-import gd4 from '../assets/Photos/graduation_day/4.JPG'
+import farm from "../assets/Photos/academics/farm.webp";
+import sandwich from "../assets/Photos/academics/sandwich.webp";
+import graduationDay from '../assets/banner_images/banner_6.webp'
+import gd1 from '../assets/Photos/graduation_day/1.webp'
+import gd2 from '../assets/Photos/graduation_day/2.webp'
+import gd3 from '../assets/Photos/graduation_day/3.webp'
+import gd4 from '../assets/Photos/graduation_day/4.webp'
 
 // EVENTS (Festivals / Celebrations)
 export const events = [

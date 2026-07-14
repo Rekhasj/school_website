@@ -8,9 +8,9 @@ import independence from '../assets/Photos/independence_day/independence_6.webp'
 import { StaffSection } from "../components/TT/StaffSection";
 import StatCard from "../components/About/StatCard";
 
-import Hafeez from "../assets/Photos/board_members/hafeez.jpeg"
-import Shabir from "../assets/Photos/board_members/shabir.jpeg"
-import Rafeek from "../assets/Photos/board_members/rafeek.jpeg"
+import Hafeez from "../assets/Photos/board_members/hafeez.webp"
+import Shabir from "../assets/Photos/board_members/shabir.webp"
+import Rafeek from "../assets/Photos/board_members/rafeek.webp"
 
 // ─── DATA ────────────────────────────────────────────────────────────────────
 
