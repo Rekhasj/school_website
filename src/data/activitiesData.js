@@ -49,6 +49,7 @@ import independence7 from "../assets/Photos/independence_day/independence_7.webp
 import independence8 from "../assets/Photos/independence_day/independence_8.webp";
 import independence9 from "../assets/Photos/independence_day/independence_9.webp";
 import independence10 from "../assets/Photos/independence_day/independence_10.webp";
+import flag from "../assets/Photos/independence_day/flag.jpeg";
 
 import republic1 from "../assets/Photos/republic_day/republic_1.webp";
 import republic2 from "../assets/Photos/republic_day/republic_2.webp";
@@ -61,7 +62,7 @@ export const activitiesData = [
     id: "national",
     title: "National Celebrations",
     description: "Patriotic events and national festivals",
-    image: independence1,
+    image: flag,
     items: [
       {
         name: "Independence Day",
@@ -75,26 +76,7 @@ export const activitiesData = [
       },
     ],
   },
-  {
-    id: "sports",
-    title: "Sports Activities",
-    description: "Karate, Sports Meet and Physical Activities",
-    image: sports1,
-    items: [
-      {
-        name: "Karate",
-        description: "Karate classes in Hawkings school provide holistic benefits, combining physical fitness (strength, coordination, flexibility) with mental discipline, focus, and self-confidence. They promote self-defense skills against bullying, improve emotional balance, and instill respect, patience, and concentration, which positively affect academic performance and social behavior.",
-        images: [karate1],
-      },
-      {
-        name: "Sports Meet",
-        description: "Annual Sports Meet at Hawkings International School was a premier school event featuring athletics, team games, and march-pasts, designed to promote physical fitness, teamwork, and healthy competition.",
-        images: [sports1, sports2, sports3, sports4],
-      },
-    ],
-  },
-
-  {
+   {
     id: "cultural",
     title: "Cultural & Festival Events",
     description: "Celebrations and traditional events",
@@ -119,6 +101,26 @@ export const activitiesData = [
     ],
   },
 
+  {
+    id: "sports",
+    title: "Sports Activities",
+    description: "Karate, Sports Meet and Physical Activities",
+    image: sports1,
+    items: [
+      {
+        name: "Karate",
+        description: "Karate classes in Hawkings school provide holistic benefits, combining physical fitness (strength, coordination, flexibility) with mental discipline, focus, and self-confidence. They promote self-defense skills against bullying, improve emotional balance, and instill respect, patience, and concentration, which positively affect academic performance and social behavior.",
+        images: [karate1],
+      },
+      {
+        name: "Sports Meet",
+        description: "Annual Sports Meet at Hawkings International School was a premier school event featuring athletics, team games, and march-pasts, designed to promote physical fitness, teamwork, and healthy competition.",
+        images: [sports1, sports2, sports3, sports4],
+      },
+    ],
+  },
+
+ 
   {
     id: "academic",
     title: "Academic Activities",

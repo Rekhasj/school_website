@@ -7,13 +7,14 @@ import teluguday from "../assets/Photos/telugu_day/telugu_day.jpeg";
 import robotics from "../assets/Photos/robotics/r3.jpeg";
 import karate from "../assets/Photos/karate/karate_2.webp";
 import scienceExpo from "../assets/Photos/science_expo_photos/science_expo_1.webp";
-import annual_day from "../assets/Photos/annual_day.jpeg";
+import annual_day from "../assets/Photos/annual_day1.jpeg";
 import skating from "../assets/Photos/skating.jpeg";
 import yoga from "../assets/Photos/yoga_day/yoga_1.jpeg";
 import shooting from "../assets/Photos/shooting/shooting_4.webp";
 import sports2 from "../assets/Photos/sports_meet/sports_2.webp";
 import christmas from "../assets/Photos/christmas_day/christmas_2.webp";
 import independence from "../assets/Photos/independence_day/independence_5.webp";
+import flag from "../assets/Photos/independence_day/flag.jpeg";
 import color from "../assets/Photos/colors_day/color_14.webp";
 import kidsExpo from "../assets/Photos/kids_expo/4.webp";
 import scienceExpo1 from "../assets/Photos/science_expo_photos/science_expo_5.JPG";
@@ -29,7 +30,7 @@ const slides = [
 
   { src: skating, label: "Skating" },
 
-  { src: independence, label: "Independence Day" },
+  { src: flag, label: "Independence Day" },
   { src: shooting, label: "Shooting" },
   { src: sports2, label: "Sports" },
   { src: christmas, label: "Christmas" },

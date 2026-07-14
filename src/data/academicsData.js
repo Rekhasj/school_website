@@ -14,6 +14,7 @@ import banner2 from '../assets/Photos/staff/1.webp'
 import sports from '../assets/Photos/sports_meet/sports_3.webp'
 import middleSchool from '../assets/Photos/academics/middle_school_1.JPG'
 import secondarySchool from '../assets/Photos/academics/secondary_school_1.JPG'
+import secondaryschool from '../assets/Photos/academics/secondary_school.jpeg'
 
  const BLUE  = "rgb(24,55,105)";
 const GREEN = "#00594c";
@@ -156,7 +157,7 @@ export const SECTIONS = [
       subtitle: "Grades IX – X · Ages 14–16",
       color: SKY,
       textColor: BLUE,
-      image: secondarySchool,
+      image: secondaryschool,
       gallery: [
         "/images/academics/secondary-1.jpg",
         "/images/academics/secondary-2.jpg",

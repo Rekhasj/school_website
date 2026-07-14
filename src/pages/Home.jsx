@@ -31,6 +31,7 @@ import galKarate        from "../assets/Photos/karate/karate_2.webp";
 import annual_day        from "../assets/Photos/annual_day.jpeg";
 import galKrishna       from "../assets/Photos/krishnaDay/krishnaDay.webp";
 import galRobotics      from "../assets/Photos/robotics/r3.jpeg";
+import annualday2      from "../assets/Photos/annual_day2.jpeg";
 import galScienceExpo   from "../assets/Photos/science_expo_photos/science_expo_1.webp";
 import kidsScienceExpo   from "../assets/Photos/kids_expo/srkg.jpg";
 import onam   from "../assets/Photos/onam/1.webp";
@@ -518,12 +519,12 @@ const Home = () => {
           
               { src: sankranti,       label: "Sankranti",         style: styles.galCellTall },
               // { src: galScienceExpo,  label: "Science Expo",      style: styles.galCell },
-                                          { src: srkg,       label: "Kids Expo",       style: styles.galCellTall },
+                                          { src: srkg,       label: "Graduation Day",       style: styles.galCellTall },
 
               { src: cyclerally,      label: "Cycle Rally",       style: styles.galCell },
                { src: skating,         label: "Skating",           style: styles.galCellTall },
         
-              { src: galRobotics,     label: "Robotics",          style: styles.galCell },
+              { src: annualday2,     label: "Annual Day",          style: styles.galCell },
               { src: onam,      label: "Onam",  style: styles.galCell },
   
             ].map((item, i) => (

@@ -3,6 +3,7 @@ import pongal1 from "../assets/Photos/sankranti/pongal1.webp";
 import pongal2 from "../assets/Photos/sankranti/pongal2.webp";
 import pongal3 from "../assets/Photos/sankranti/pongal3.webp";
 import pongal4 from "../assets/Photos/sankranti/pongal4.webp";
+import pongal9 from "../assets/Photos/sankranti/pongal_9.webp";
 
 import onamMain from "../assets/Photos/onam/1.webp";
 import onam1 from "../assets/Photos/onam/2.webp";
@@ -91,20 +92,30 @@ import kidsExpo6 from "../assets/Photos/kids_expo/6.webp";
 import banner1 from "../assets/banner_images/banner_1.webp";
 import banner2 from "../assets/banner_images/banner_2.webp";
 import banner3 from "../assets/banner_images/banner_3.webp";
+import banner4 from "../assets/Photos/drone/schooll_night_view.jpeg";
+import banner5 from "../assets/Photos/academics/01__Group.jpg";
+import banner6 from "../assets/banner_images/banner_6.jpg";
+import banner7 from "../assets/banner_images/banner_5.jpg";
 
 import crosscountryrace from '../assets/Photos/crosscountryrace.jpeg';
 import cyclerally from '../assets/Photos/cyclerally.jpeg';
 import horseriding from '../assets/Photos/horseriding.jpeg';
 import skating from '../assets/Photos/skating.jpeg';
 
-
+import farm from "../assets/Photos/academics/farm.jpeg";
+import sandwich from "../assets/Photos/academics/sandwich.jpeg";
+import graduationDay from '../assets/banner_images/banner_6.JPG'
+import gd1 from '../assets/Photos/graduation_day/1.JPG'
+import gd2 from '../assets/Photos/graduation_day/2.JPG'
+import gd3 from '../assets/Photos/graduation_day/3.JPG'
+import gd4 from '../assets/Photos/graduation_day/4.JPG'
 
 // EVENTS (Festivals / Celebrations)
 export const events = [
     {
         id: 1,
         title: "Pongal Celebration",
-        mainImage: pongalMain,
+        mainImage: pongal9,
         gallery: [pongal1, pongal2, pongal3, pongal4],
     },
     {
@@ -135,6 +146,18 @@ export const events = [
         title: "First Day of School",
         mainImage: firstDayMain,
         gallery: [first1, first2, first3],
+    },
+     {
+        id: 6,
+        title: "Farm Animals",
+        mainImage: farm,
+        gallery: [farm],
+    },
+     {
+        id: 7,
+        title: "Sandwich Making Day",
+        mainImage: sandwich,
+        gallery: [sandwich],
     },
 ];
 
@@ -199,6 +222,12 @@ export const specialEvents = [
         image: republic1,
         gallery: [republic1, republic2, republic3],
     },
+    {
+        id: 4,
+        title: "Graduation Day",
+        image: graduationDay,
+        gallery: [gd1, gd2, gd3,gd4],
+    },
 ];
 
 
@@ -226,4 +255,4 @@ export const sportsActivities = [
 ];
 
 
-export const banners = [banner1, banner2, banner3];
+export const banners = [banner1, banner2,banner5, banner3,banner4,banner6,banner7];

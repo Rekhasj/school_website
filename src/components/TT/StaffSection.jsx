@@ -6,13 +6,14 @@ import training2 from '../../assets/Photos/Training/2.jpeg'
 import training3 from '../../assets/Photos/Training/3.jpeg'
 import training4 from '../../assets/Photos/Training/4.jpeg'
 import nadiya from '../../assets/Photos/board_members/nadiya.JPG'
+import joseph from '../../assets/Photos/board_members/joseph.jpeg'
 import './StaffSection.css'
 
 const staffData = [
   {
     name: "Mr. Joseph Miller V",
     role: "Principal",
-    image: "https://via.placeholder.com/300",
+    image: joseph,
     bio: "10+ years of experience in academic leadership and CBSE curriculum."
   },
   {
